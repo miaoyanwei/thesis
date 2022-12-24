@@ -1,0 +1,66 @@
+\documentclass[12pt,a4wide]{report}
+
+%Image-related packages
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage[export]{adjustbox}
+\usepackage{chemformula}
+
+%Abbreviations
+\usepackage{glossaries}
+\makeglossaries
+
+%Style
+\setlength{\parskip}{1em plus 0.25em minus 0.25em}
+\renewcommand{\baselinestretch}{1.5}
+
+%Table of contents, figures, tables
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{appendix}
+
+%Header & footer
+\usepackage{fancyhdr}
+
+
+%Redefines the /today command
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May%
+\or June\or July\or August\or September\or October\or November\or December\fi\:%
+\number \year} 
+
+\begin{document}
+
+\input{Cover/00_Title.tex}
+\input{Cover/01_Abstract.tex}
+\input{Cover/02_Lists.tex}
+\input{Cover/03_Abbreviations.tex}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{Chapters/01_Introduction}
+\input{Chapters/02_Background.tex}
+\input{Chapters/03_Methodology.tex}
+\input{Chapters/04_Supervision agreements.tex}
+
+\appendix
+\appendixpage
+\addappheadtotoc
+\input{Appendices/A.tex}
+
+\nocite{*} % Without this, only cited materials are displayed in the bibliography.
+
+\bibliographystyle{apalike}
+\bibliography{ref}
+
+\end{document}
