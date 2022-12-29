@@ -5,10 +5,6 @@
 \usepackage{subcaption}
 \usepackage[export]{adjustbox}
 
-%Abbreviations
-\usepackage{glossaries}
-\makeglossaries
-
 %Style
 \setlength{\parskip}{1em plus 0.25em minus 0.25em}
 \renewcommand{\baselinestretch}{1.5}
@@ -39,11 +35,14 @@
 %Header & footer
 \usepackage{fancyhdr}
 
-
 %Redefines the /today command
 \renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May%
 \or June\or July\or August\or September\or October\or November\or December\fi\:%
-\number \year} 
+\number \year}
+
+%Glossary
+\usepackage{glossaries}
+\input{Cover/Glossaries.tex}
 
 \begin{document}
 
@@ -61,6 +60,7 @@
 \input{Chapters/04_Supervision agreements.tex}
 
 \appendix
+
 \appendixpage
 \addappheadtotoc
 \input{Appendices/A.tex}
