@@ -22,27 +22,76 @@ Promoted by the declining costs of technologies and support policies, more and m
 \section{FLEX models}
 
 The FLEX-Operation and FLEX-Community models were built to improve the building modeling suite and to analyze the societal trends of prosumaging and energy communities.
+The figure below shows how FLEX interacts with other bottom-up models involved in the newTRENDs project.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{Images/flex.png}
+  \caption{FLEX}
+\end{figure}
 
 \subsection{FLEX-Operation}
 
-FLEX-Operation calculates the energy consumption of each representative building, including operation of technologies (e.g., battery, PV, heat pump, etc.) and load profiles in hourly resolution.
+FLEX-Operation models the energy system operation of an individual household in hourly resolution.  
+It calculates the energy consumption of each representative building, including operation of technologies (e.g., battery, PV, heat pump, etc.) and load profiles in hourly resolution.
 
 \subsection{FLEX-Community}
 
-FLEX-Community can be applied to support the aggregators designing and evaluating business models, as well as making investment decisions, for example, the self-owned battery, PV panels, etc.
+FLEX-Community models the operation of an energy community, i.e., household interaction, aggregator optimisation. 
+It can be applied to support the aggregators designing and evaluating business models, as well as making investment decisions, for example, the self-owned battery, PV panels, etc.
+
+\subsection{FLEX-Behavior}
+
+FLEX-Behavior models the behavior (activity profile) of households' and corresponding load profiles. 
+It generates the hourly activity and energy demand profile of a pre-defined individual household. 
+The results include
+
+\begin{enumerate}
+  \item appliance electricity demand,
+  \item domestic hot water demand,
+  \item driving profile, and
+  \item building occupation.
+\end{enumerate}
+
+Data will be considered by the model is
+
+\begin{itemize}
+  \item building,
+  \item heating system (heat pump, fuel-based boiler, electric heater),
+  \item thermal storages for space heating and domestic hot water,
+  \item space cooling technology,
+  \item PV,
+  \item battery, and
+  \item electric vehicle.
+\end{itemize}
+
+This proposed thesis is going to focus on FLEX-Behavior model. 
 
 \section{Motivations}
 
-An opportunity to encourage European residents to switch to greener energy options. 
+This would be an opportunity to encourage European households, that are under suitable conditions, to switch to greener energy options. 
 That actually do benefits for not only the environment but also for the planet. 
 
-\section{Research questions}
+\section{Research gaps and questions}
 
-This paper focuses on investigating European resident's profile types, 
-in order to provide easy, accurate and explainable predictions and suggestions for them. 
+There is a lack of research and design case studies to promote energy optimisation solutions from a user's perspective. 
+This proposed thesis will unfold from following perspectives
 
 \begin{itemize}
-  \item Residents profiles?
-  \item Be explainable? 
+  \item Awareness and understanding of new energy sources
+  \item Demand for new energy sources
+  \item Confidence in new energy solutions
+  \item Feasibility of adopting new energy options
+\end{itemize}
+
+The aims of the proposed thesis are 
+\textit{(i)} implementation of proposed smart energy optimisation recommender as a web application, using data visualisation techniques designed for different types of households. 
+\textit{(ii)} evaluation of the explainability of smart energy optimisation recommender at the user level and measuring the impact of the households perceptions towards energy optimisation solutions. 
+\textit{(iii)} provide a design guideline on how to enable trust in energy optimisation solutions when trying to promote green energy plans. 
+
+\begin{itemize}
+  \item Building typical household profiles.
+  \item A decision tree is used to obtain information about the user by analys\-ing the profiles and predicting them in order to reduce the number of steps involved in entering user data.
+  \item The result is an interpretable energy optimisation solution.
 \end{itemize}
 
