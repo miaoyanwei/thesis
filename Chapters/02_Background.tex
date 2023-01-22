@@ -22,18 +22,17 @@ Promoted by the declining costs of technologies and support policies, more and m
 \section{FLEX models}
 
 The FLEX-Operation and FLEX-Community models were built to improve the building modeling suite and to analyze the societal trends of prosumaging and energy communities.
-The figure below shows how FLEX interacts with other bottom-up models involved in the newTRENDs project.
+The figure \ref{fig:flex} shows how FLEX interacts with other bottom-up models involved in the newTRENDs project.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{Images/flex.png}
-  \caption{FLEX}
+  \caption{FLEX modeling suite}
+  \label{fig:flex}
 \end{figure}
 
-\subsection{FLEX-Operation}
-
-FLEX-Operation models the energy system operation of an individual household in hourly resolution.  
-It calculates the energy consumption of each representative building, including operation of technologies (e.g., battery, PV, heat pump, etc.) and load profiles in hourly resolution.
+INVERT/EE-Lab and FORECAST-Appliance are the two models that can cover the energy consumption of residential buildings. The two models complement each other and cover the total energy consumption of households. 
+However, both INVERT/EE-Lab and FORECAST-Appliance calculate the energy consumption at the annual resolution and cannot model the prosumaging behavior and energy community, which requires an hourly resolution to consider the impact of household behavior, PV generation, and energy storage (thermal and battery) on energy consumption. In this regard, we developed the FLEX- Operation and FLEX-Community models to improve the building modeling suite and support relevant policy analysis.
 
 \subsection{FLEX-Community}
 
@@ -53,7 +52,12 @@ The results include
   \item building occupation.
 \end{enumerate}
 
-Data will be considered by the model is
+\subsection{FLEX-Operation}
+
+FLEX-Operation models the energy system operation of an individual household in hourly resolution.  
+It calculates the energy consumption of each representative building, including operation of technologies (e.g., battery, PV, heat pump, etc.) and load profiles in hourly resolution.
+
+Data is considered by the model
 
 \begin{itemize}
   \item building,
@@ -65,26 +69,33 @@ Data will be considered by the model is
   \item electric vehicle.
 \end{itemize}
 
-This proposed thesis is going to focus on FLEX-Behavior model. 
-
 \section{Motivations}
 
-This would be an opportunity to encourage European households, that are under suitable conditions, to switch to greener energy options. 
-That actually do benefits for not only the environment but also for the planet. 
+As a part of the newTRENDs project, 
+the proposed thesis will focus solely on the implementation of the FLEX-Operation model.  
+By employing the model to 
+suggest reliable, cost-effective energy optimisation solutions 
+while giving households with comparable predicted statistics on their energy consumption for the time frame. 
+Despite the fact that the model primarily responds to societal trends for 2030, 
+which means it provides more flexible suggestions when a household already owns a photovoltaic (\gls{pv}) system, 
+this could be as well an opportunity to nudge the European households who currently rely on other energy resources
+to switch to renewable energy when feasible. 
+And it will be beneficial not only to the environment but also to consumers. 
 
 \section{Research gaps and questions}
 
-There is a lack of research and design case studies to promote energy optimisation solutions from a user's perspective. 
-This proposed thesis will unfold from following perspectives
+There is a lack of case study research of promoting energy optimisation solutions. 
+The aim of this proposed thesis is to design and develop a user-friendly web application for an energy optimisation recommendation system.
+
+The following criteria should be taken into account while building a user-friendly application: 
 
 \begin{itemize}
-  \item Awareness and understanding of new energy sources
-  \item Demand for new energy sources
-  \item Confidence in new energy solutions
-  \item Feasibility of adopting new energy options
+  \item It should be easy and effortless for using. 
+  \item The interactions should be intuiative. 
+  \item The recommandations should be clear explained. 
 \end{itemize}
 
-The aims of the proposed thesis are 
+The aim of this proposed thesis is 
 \textit{(i)} implementation of proposed smart energy optimisation recommender as a web application, using data visualisation techniques designed for different types of households. 
 \textit{(ii)} evaluation of the explainability of smart energy optimisation recommender at the user level and measuring the impact of the households perceptions towards energy optimisation solutions. 
 \textit{(iii)} provide a design guideline on how to enable trust in energy optimisation solutions when trying to promote green energy plans. 
