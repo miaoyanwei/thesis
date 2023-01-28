@@ -9,28 +9,28 @@ Related projects are in the areas of urban adaptation and land-use planning, res
 %These terms go hand-in-hand as we tackle the climate crisis. 
 The newTRENDs project falls into the category of climate change mitigation. 
 
-%To achieve these goals, two central strategies are pursued by the \gls{eu} and its Member States concerning the energy system \cite{2050}: 
-
-%\begin{enumerate}
-%  \item Enhancing energy efficiency (EE). 
-%  \item Decarbonizing energy supply, in particular via large diffusion and wide-use of renewable energy sources.
-%\end{enumerate}
-
 %In 2019, 80.9\% of our total energy supply still depended on burning fossil fuels, namely 26.8\% coal, 30.9\% oil and 23.2\% natural gas \cite{iea}. 
 %Nonetheless, investments into low-carbon power generation accounted for 15\% recently are expected to rise to more than 30\% by 2030, corresponding to a quadrupling in absolute volumes \cite{shift}. Solar, wind, and the investments for enabling the integration of these technologies to the grid dominate the investments into low-carbon power generation \cite{shift}. 
 
 %Climate change can only be tackled if people actively engage, as consumers and as citizens \cite{clean}. 
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The newTRENDs project}
+
 
 The historic Paris Agreement sets long-term goals to guide all nations to substantially reduce global \gls{ghg} emissions to limit the global temperature increase to 2 degrees Celsius in this century \cite{paris}. 
 On European Union (\gls{eu}) level, “Energy 2020. A strategy for competitive, sustainable and secure energy”, published in November 2010, and “Energy Roadmap 2050”, published at the end of 2011, are the most important strategy papers currently, pointing the direction for energy developments in the \gls{eu} \cite{roadmap}. 
 The aim is to confirm Europe's commitment to lead in global climate action and to present a vision that can lead to achieving net-zero \gls{ghg} emissions by 2050 through a socially-fair transition in a cost-efficient manner \cite{clean}. 
 
 To achieve these ambitious goals, the world is facing an unprecedented imperative to a rapidly transition in the energy sector. 
+Energy efficiency (\gls{ee}) and renewable energy (\gls{re}) are two central strategies pursued by the \gls{eu} and its Member States concerning the energy system. 
 Transitioning towards a sustainable energy system necessitates significant effort on both the demand and supply sides. 
 However, previous research has shown that in many areas energy efficiency gains were counteracted by societal trends that increased corresponding activities, leading to much smaller decreases (or even increases) of energy demand than technologically feasible, it is therefore important to access current and (foreseeable) future societal trends concerning the impact that they might have on future energy demand \cite{2050}. 
 The aim of newTRENDs is to increase the qualitative and quantitative understanding of impacts of new societal trends on energy consumption and to improve the modelling of energy demand, energy efficiency and policy instruments \cite{fraunhofer}. 
+
 
 \subsection{New societal trends on energy demand}
 
@@ -40,14 +40,28 @@ Heike Brugger et al. \cite{2050} established four arising societal trend cluster
 
 \begin{itemize}
   \item \textbf{Digitalization of Life} \\ the digitalization of the economy and of private life;
-  \item \textbf{New Social and Economic Models} \\ new social and economic models, including the sharing economy and prosumaging (combination of producing, consuming and managing of energy);
-  \item \textbf{Industrial Transformation} \\ the industrial transformation, including decarbonization of industrial processes and the circular economy (including a stronger focus on material efficiency);
-  \item \textbf{Quality of Life} \\ changes in the quality of life, including health effects, urbanization and regionalization. 
+  \item \textbf{New Social and Economic Models} \\ including the sharing economy and prosumaging (combination of producing, consuming and managing of energy);
+  \item \textbf{Industrial Transformation} \\ including decarbonization of industrial processes and the circular economy (including a stronger focus on material efficiency);
+  \item \textbf{Quality of Life} \\ including health effects, urbanization and regionalization. 
 \end{itemize}
 
-The newTRENDs project develops the analytical basis for a “2050 Energy Efficiency Vision” by considering new societal trends in energy demand modeling \cite{newtrends}. 
+%The newTRENDs project develops the analytical basis for a “2050 Energy Efficiency Vision” by considering new societal trends in energy demand modeling \cite{newtrends}. 
+Considering the impact of the new societal trends on energy demand from a closer sectoral perspective,
+Songmin Yu et al. \cite{newtrends} identified four sectors: 
 
-\subsection{Household}
+\begin{itemize}
+  \item \textbf{Industry}, 
+  \item \textbf{Transport}, 
+  \item \textbf{Tertiary}, 
+  \item \textbf{Residential}. 
+\end{itemize}
+
+This proposed thesis will focus on the area of residential buildings,
+considering the scenarios of “consumers” becoming “prosumers” (with \gls{pv}) and “prosumagers” (adding energy storage and \gls{sems}),
+and are expected to join the energy communities \cite{consumer}.  
+
+
+\subsection{The modeling of residential buildings}
 
 With increasing renewable generation integrated into the power system, supply-side fluctuations must be balanced by demand-side flexibility. 
 Electrification and demand response (DR) are becoming increasingly relevant to the heating transition of buildings, which demands the diffusion of
@@ -61,6 +75,7 @@ Electrification and demand response (DR) are becoming increasingly relevant to t
 Combining the three technologies is also beneficial from an individual household (or building) perspective. The household can optimize the heat pump operation to reduce energy costs by saving energy in the tanks or pre-heat the building when the electricity price is lower. Besides, the energy-saving benefit could be further increased with PV and battery system.
 From a market perspective, DR flexibility and PV generation also facilitate the concept of "energy community". The households can trade electricity with each other (peer-to-peer, P2P) within a local micro-grid or even trade with the other side of the country through the national grid, depending on the infrastructure, business model, and policies. In addition, households can also buy the services from an "aggregator", who bundles and manages the flexibility of small consumers and producers and participate in the market activities (Kerscher and Arboleya 2022). 
 Promoted by the declining costs of technologies and support policies, more and more household "consumers" are expected to become "prosumers" (with PV) and "prosumagers" (plus energy storage and SEMS) (Fereidoon Sioshansi 2019).
+
 
 \subsubsection{FLEX models}
 
@@ -77,10 +92,12 @@ The figure \ref{fig:flex} shows how FLEX interacts with other bottom-up models i
 INVERT/EE-Lab and FORECAST-Appliance are the two models that can cover the energy consumption of residential buildings. The two models complement each other and cover the total energy consumption of households. 
 However, both INVERT/EE-Lab and FORECAST-Appliance calculate the energy consumption at the annual resolution and cannot model the prosumaging behavior and energy community, which requires an hourly resolution to consider the impact of household behavior, PV generation, and energy storage (thermal and battery) on energy consumption. In this regard, we developed the FLEX- Operation and FLEX-Community models to improve the building modeling suite and support relevant policy analysis.
 
+
 \subsubsection{FLEX-Community}
 
 FLEX-Community models the operation of an energy community, i.e., household interaction, aggregator optimisation. 
 It can be applied to support the aggregators designing and evaluating business models, as well as making investment decisions, for example, the self-owned battery, PV panels, etc.
+
 
 \subsubsection{FLEX-Behavior}
 
@@ -94,6 +111,7 @@ The results include
   \item driving profile, and
   \item building occupation.
 \end{enumerate}
+
 
 \subsubsection{FLEX-Operation}
 
@@ -119,7 +137,12 @@ Data is considered by the model
   \label{fig:flex-operation}
 \end{figure}
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivations}
+
 
 As a part of the newTRENDs project, 
 the proposed thesis will focus solely on the implementation of the FLEX-Operation model.  
@@ -131,6 +154,7 @@ which means it provides more flexible suggestions when a household already owns 
 this could be as well an opportunity to nudge the European households who currently rely on other energy resources
 to switch to renewable energy when feasible. 
 And it will be beneficial not only to the environment but also to consumers. 
+
 
 \subsection{Research gaps and questions}
 
@@ -167,20 +191,27 @@ Resaerch questions:
 
 \colorbox{orange}{Is there any literature review to add?}
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Supervision agreements and time planning} 
 
 Introductory lines...
+
 
 \subsection{Justification for 30 ECTS}
 
 Research + design + develop
 very practical. 
 
+
 \subsection{Supervision}
 
 This master thesis project will be supervised by 
 Prof. Dr. Gunnar Stevens (\href{mailto:gunnar.stevens@uni-siegen.de}{gunnar.stevens@uni-siegen.de}) at Siegen University and 
 Dr. Songming Yu (\href{mailto:songmin.yu@isi.fraunhofer.de}{songmin.yu@isi.fraunhofer.de}) from The Fraunhofer Institute for Systems and Innovation Research. 
+
 
 \subsection{Time planning}
 
