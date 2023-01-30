@@ -113,6 +113,13 @@ FLEX-Operation models the energy system operation of an individual household in 
 It can be used to calculate the energy consumption of each representative building, including operation of technologies (e.g., battery, \gls{pv}, \gls{hp}, etc.) and load profiles in hourly resolution. 
 Furthermore, FLEX-Operation can also provide implications for investment decisions, i.e., the energy-saving benefit of technology adoption. 
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{Images/flex-operation.png}
+  \caption{Model structure for individual households}
+  \label{fig:flex-operation}
+\end{figure}
+
 As shown in figure \ref{fig:flex-operation}, FLEX-Operation considers following five energy services:
 
 \begin{enumerate}
@@ -122,13 +129,6 @@ As shown in figure \ref{fig:flex-operation}, FLEX-Operation considers following 
   \item space cooling;
   \item vehicle. 
 \end{enumerate}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth]{Images/flex-operation.png}
-  \caption{Model structure for individual households}
-  \label{fig:flex-operation}
-\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%
@@ -169,40 +169,48 @@ As a part of the newTRENDs project,
 the proposed thesis will focus solely on 
 the implementation of the FLEX-Operation model.  
 The aim is to provide techno-economic assessments 
-of configuration optimisations of a household's energy system, 
+of configuration optimisations of households' energy systems, 
 in order to support decision-making on technology adoption at the residential level. 
 Despite the fact that the model primarily responds to societal trends for 2030, 
 which means it provides more flexible suggestions when a household already owns a \gls{pv} system, 
 this could be as well an opportunity to nudge the European households who currently rely on other energy resources
 to switch to renewable energy when feasible. 
-And it will be beneficial not only to the environment but also to consumers. 
+This project can be used to 
+guiding decisions on the use of clean energy and energy technologies at the household level, 
+and encouraging households to engage in energy conservation practices and investments. 
 
 
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Research gaps}
 
 
-There is a lack of case study research from the user perspective. 
+There is a lack of case study research. 
+
+Empirical results suggest that households' propensity to invest in clean energy technologies depends mainly on home ownership, income, social context and household energy conservation practices,
+in addition, environmental attitudes and beliefs, as manifest in energy conservation practices or membership in an environmental non-governmental organisation, also play a relevant role in technology adoption \cite{determinants}.
 
 \colorbox{orange}{Is there any literature review to add?}
 
 
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Research questions}
 
 
-This proposed thesis tries to answer:  
-how HCI can help households configure their energy sytems to more renewables.
+This proposed thesis attempts to answer:  
+how HCI can help households' investment in energy efficiency and renewables
 from a techno-economic perspective.
-%that enable evaluations of the technological performance and economic feasibility of a household's energy system.
+%evaluations of the technological performance and economic feasibility of a household's energy system.
+As well as to develop a user-friendly software for this purpose. 
 
-The following criteria should be taken into account while building a software application from a user's perspective: 
+Accordingly, three subquestions are raised: 
 
-\begin{itemize}
-  \item It should be easy and effortless for using. 
-  \item The interactions should be intuiative. 
-  \item The recommandations should be clear explained to users. 
-\end{itemize}
+\begin{enumerate}
+  \item What are the data required by the FLEX-Operation model from households? 
+  \item What are the typical European household profiles? 
+  \item How to build a trustworthy and user-friendly energy optimisation recommendation system? 
+\end{enumerate}
 
-Objectives: 
+The following research objectives will aid in achieving the goal: 
 
 \begin{itemize}
   \item Investigate the data of the FLEX-Operation model to build an energy optimisation recommendation system. 
@@ -214,14 +222,14 @@ Objectives:
   \item Allow long-term event tracking for iteration. 
 \end{itemize}
 
-Resaerch questions:
+Meanwhile, the following criteria should be taken into consideration 
+while building a software application from a user's perspective: 
 
-\begin{enumerate}
-  \item What are the data required by the FLEX-Operation model from households? 
-  \item What are the typical European household profiles? 
-  \item How to build a trustworthy and user-friendly energy optimisation recommendation system? 
-\end{enumerate}
-
+\begin{itemize}
+  \item It should be easy and effortless for using. 
+  \item The interactions should be intuiative. 
+  \item The recommandations should be clear explained to users. 
+\end{itemize}
 
 
 
@@ -253,7 +261,8 @@ Dr. Songming Yu (\href{mailto:songmin.yu@isi.fraunhofer.de}{songmin.yu@isi.fraun
 \subsection{Time planning}
 
 
-Some text \\
+The following is the time allocation for the research objetives, 
+which are scheduled to be completed in 22 weeks. \\
 
 \begin{table}[h]
     \begin{center}
