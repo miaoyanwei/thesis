@@ -16,4 +16,5 @@
 *.glg
 *.gls
 *.synctex.gz
-*.DS_Store
+/out/
+.idea/
