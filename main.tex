@@ -7,7 +7,7 @@
 
 %Style
 \setlength{\parskip}{1em plus 0.25em minus 0.25em}
-\renewcommand{\baselinestretch}{1.8}
+\renewcommand{\baselinestretch}{1.5}
 
 %Table of contents, figures, tables
 \usepackage[nottoc]{tocbibind}
@@ -28,7 +28,7 @@
 %Table style
 \usepackage{multirow}
 \usepackage{tabularx}
-\setlength{\arrayrulewidth}{0.4mm} %The thickness of the borders
+\setlength{\arrayrulewidth}{0.2mm} %The thickness of the borders
 \setlength{\tabcolsep}{10pt} %The space between the text and the left/right border
 \renewcommand{\arraystretch}{1.5} %The height of each row
 \usepackage{colortbl} %Table cell colour
@@ -36,6 +36,8 @@
 
 %Header & footer
 \usepackage{fancyhdr}
+\setlength{\skip\footins}{4em} %Space between main text and footnotes 
+\setlength{\footnotesep}{1em} %The height of a strut placed at the beginning of every footnote
 
 %Redefines the /today command
 \renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May%
