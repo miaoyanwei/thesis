@@ -16,6 +16,7 @@
 *.glg
 *.gls
 *.synctex.gz
+*.dvi
 /out/
 .idea/
 .DS_Store
