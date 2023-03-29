@@ -1,90 +1,21 @@
 \chapter{Pre-study} 
 
-Introductory lines...
-
-\section{Review}
-
-Households use energy for various purposes: space and water heating, space cooling, cooking, lighting and electrical appliances and other end-uses ( mainly covering uses of energy by households outside the dwellings themselves) \cite{eurostat}. 
-In 2020, households, or the residential sector, represented 27.4\% of final energy consumption or 18.7\% of gross inland energy consumption in the EU \cite{eurostat}. 
+In 2023, Eurostat \cite{eurostat} released a report providing insight into the energy consumption patterns of households, with a focus on its various end-uses such as space and water heating, space cooling, cooking, lighting and electrical appliances, as well as other peripheral uses of energy. Notably, the report revealed that in 2020, the residential sector, or households, accounted for a significant proportion of final energy consumption in the European Union (EU), representing 27.4\% of total final energy consumption or 18.7\% of gross inland energy consumption. This highlights the importance of understanding household energy usage in devising effective energy management and conservation strategies within the EU. 
 
 
-\section{Input data by FLEX-Operation model}
+\section{Academia}
 
-In order to accurately anticipate household's energy costs,
-the FLEX-Operation model takes a set of variables into account,
-and they can be divided into following 15 categories: 
-\emph{
-    behaviour profile,
-    battery,
-    behaviour, 
-    boiler,
-    building,
-    energy price,
-    heating element, 
-    hot water tank,
-    \gls{pv},
-    region,
-    space cooling technology,
-    space heating tank,
-    vehicle,
-    energy price,
-    region weather. 
-}
+Within the academic community, 
+there exists a concerted effort to address issues related to energy efficiency and the adoption of renewable energy sources. 
+There are numerous research and ongoing projects aimed at establishing a robust social energy infrastructure capable of adapting to the utilization of renewable energy sources. 
+Studies are also investigating the feasibility and practicalities of establishing zero-emission households and buildings.
+Technological innovations designed to support these goals have also been a focal point in the academic discourse surrounding energy efficiency and the transition to renewable energy.
 
-Furthermore, the specific data required within each category is shown in table \ref{tab:dataset}. 
+In the meantime, Palmer et al. \cite{informationgap} drew attention to the fact that engineering studies have identified various investments in new energy-efficient equipment or building retrofits that would generate savings surpassing their costs in terms of lower future energy expenses. However, homeowners and businesses lack sufficient knowledge and guidance on how to effectively utilize these opportunities to their advantage.
 
-\begin{center}
-    \small
-    \begin{longtable}{ | p{.10\textwidth} | p{.80\textwidth} | }
-        \hline 
-        \multicolumn{1}{|c|}{\textbf{Category}} & \multicolumn{1}{c|}{\textbf{Data}} \\ 
-        \hline 
-        \endfirsthead
+\section{Industry}
 
-        \multicolumn{2}{l}
-        {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-        \hline \multicolumn{1}{|c|}{\textbf{Category}} &
-        \multicolumn{1}{c|}{\textbf{Data}} \\  
-        \endhead
 
-        \multicolumn{2}{|r|}{{Continued on next page}} \\ 
-        \hline
-        \endfoot
+\section{Regulations}
 
-        \endlastfoot
-        
-            Behaviour profile & id\_hour, people\_at\_home\_profile\_1, hot\_water\_demand\_profile\_1, appliance\_electricity\_demand\_profile\_1, vehicle\_at\_home\_profile\_1, vehicle\_distance\_profile\_1. \\
-            \hline 
-            Battery & ID\_Battery, capacity, capacity\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit. \\
-            \hline 
-            Behaviour & ID\_Behavior, id\_people\_at\_home\_profile, target\_temperature\_at\_home\_max, target\_temperature\_at\_home\_min, target\_temperature\_not\_at\_home\_max, target\_temperature\_not\_at\_home\_min, shading\_solar\_reduction\_rate, shading\_threshold\_temperature, temperature\_unit, id\_hot\_water\_demand\_profile, hot\_water\_demand\_annual, hot\_water\_demand\_unit, id\_appliance\_electricity\_demand\_profile, appliance\_electricity\_demand\_annual, appliance\_electricity\_demand\_unit, id\_vehicle\_at\_home\_profile, id\_vehicle\_distance\_profile. \\
-            \hline 
-            Boiler & ID\_Boiler, type, power\_max, power\_max\_unit, carnot\_efficiency\_factor. \\
-            \hline 
-            Building & ID\_Building, type, construction\_period\_start, construction\_period\_end, person\_num, Af, Hop, Htr\_w, Hve, CM\_factor, Am\_factor, internal\_gains, effective\_window\_area\_west\_east, effective\_window\_area\_south, effective\_window\_area\_north, grid\_power\_max, supply\_temperature. \\
-            \hline
-            Energy price & ID\_EnergyPrice, id\_electricity, id\_electricity\_feed\_in, id\_gases, price\_unit. \\
-            \hline
-            Heating element & ID\_HeatingElement, power, power\_unit, efficiency. \\
-            \hline 
-            Hot water tank & ID\_HotWaterTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
-            \hline 
-            \gls{pv} & ID\_PV, size, size\_unit. \\
-            \hline
-            Region & ID\_Region, code, year, norm\_outside\_temperature. \\
-            \hline 
-            Space cooling technology & ID\_SpaceCoolingTechnology, efficiency, power, power\_unit. \\
-            \hline 
-            Space heating tank & ID\_SpaceHeatingTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
-            \hline 
-            Vehicle & ID\_Vehicle, type, capacity, capacity\_unit, consumption\_rate, consumption\_rate\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit, charge\_bidirectional. \\
-            \hline 
-            Energy price & Region, year, id\_hour, electricity\_1, electricity\_2, electricity\_feed\_in\_1, gases\_1. \\
-            \hline 
-            Region weather & region, year, id\_hour, pv\_generation, pv\_generation\_unit, temperature, temperature\_unit, radiation\_south, radiation\_east, radiation\_west, radiation\_north, radiation\_unit. \\
-            \hline 
-        
-        \caption{Input data required by FLEX-Operation}
-        \label{tab:dataset}
-    \end{longtable}
-\end{center}
+

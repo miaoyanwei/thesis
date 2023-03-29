@@ -12,6 +12,94 @@ This approach takes into account a range of factors, including the external envi
 The aim of creating such a profile is to gain insights into the energy demand and supply dynamics of households. 
 This comprehensive analysis also offers insights into the specific factors that contribute to household energy consumption and highlights potential opportunities for tailored improvements to home energy systems. 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/household_profile.jpg}
+    \caption{Household profile}
+    \label{fig:profile}
+  \end{figure}
+
+\subsubsection{Input data by FLEX-Operation model}
+
+In order to accurately anticipate household's energy costs,
+the FLEX-Operation model takes a set of variables into account,
+and they can be divided into following 15 categories: 
+\emph{
+    behaviour profile,
+    battery,
+    behaviour, 
+    boiler,
+    building,
+    energy price,
+    heating element, 
+    hot water tank,
+    \gls{pv},
+    region,
+    space cooling technology,
+    space heating tank,
+    vehicle,
+    energy price,
+    region weather. 
+}
+
+Furthermore, the specific data required within each category is shown in table \ref{tab:dataset}. 
+
+\begin{center}
+    \small
+    \begin{longtable}{ | p{.10\textwidth} | p{.80\textwidth} | }
+        \hline 
+        \multicolumn{1}{|c|}{\textbf{Category}} & \multicolumn{1}{c|}{\textbf{Data}} \\ 
+        \hline 
+        \endfirsthead
+
+        \multicolumn{2}{l}
+        {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+        \hline \multicolumn{1}{|c|}{\textbf{Category}} &
+        \multicolumn{1}{c|}{\textbf{Data}} \\  
+        \endhead
+
+        \multicolumn{2}{|r|}{{Continued on next page}} \\ 
+        \hline
+        \endfoot
+
+        \endlastfoot
+        
+            Behaviour profile & id\_hour, people\_at\_home\_profile\_1, hot\_water\_demand\_profile\_1, appliance\_electricity\_demand\_profile\_1, vehicle\_at\_home\_profile\_1, vehicle\_distance\_profile\_1. \\
+            \hline 
+            Battery & ID\_Battery, capacity, capacity\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit. \\
+            \hline 
+            Behaviour & ID\_Behavior, id\_people\_at\_home\_profile, target\_temperature\_at\_home\_max, target\_temperature\_at\_home\_min, target\_temperature\_not\_at\_home\_max, target\_temperature\_not\_at\_home\_min, shading\_solar\_reduction\_rate, shading\_threshold\_temperature, temperature\_unit, id\_hot\_water\_demand\_profile, hot\_water\_demand\_annual, hot\_water\_demand\_unit, id\_appliance\_electricity\_demand\_profile, appliance\_electricity\_demand\_annual, appliance\_electricity\_demand\_unit, id\_vehicle\_at\_home\_profile, id\_vehicle\_distance\_profile. \\
+            \hline 
+            Boiler & ID\_Boiler, type, power\_max, power\_max\_unit, carnot\_efficiency\_factor. \\
+            \hline 
+            Building & ID\_Building, type, construction\_period\_start, construction\_period\_end, person\_num, Af, Hop, Htr\_w, Hve, CM\_factor, Am\_factor, internal\_gains, effective\_window\_area\_west\_east, effective\_window\_area\_south, effective\_window\_area\_north, grid\_power\_max, supply\_temperature. \\
+            \hline
+            Energy price & ID\_EnergyPrice, id\_electricity, id\_electricity\_feed\_in, id\_gases, price\_unit. \\
+            \hline
+            Heating element & ID\_HeatingElement, power, power\_unit, efficiency. \\
+            \hline 
+            Hot water tank & ID\_HotWaterTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
+            \hline 
+            \gls{pv} & ID\_PV, size, size\_unit. \\
+            \hline
+            Region & ID\_Region, code, year, norm\_outside\_temperature. \\
+            \hline 
+            Space cooling technology & ID\_SpaceCoolingTechnology, efficiency, power, power\_unit. \\
+            \hline 
+            Space heating tank & ID\_SpaceHeatingTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
+            \hline 
+            Vehicle & ID\_Vehicle, type, capacity, capacity\_unit, consumption\_rate, consumption\_rate\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit, charge\_bidirectional. \\
+            \hline 
+            Energy price & Region, year, id\_hour, electricity\_1, electricity\_2, electricity\_feed\_in\_1, gases\_1. \\
+            \hline 
+            Region weather & region, year, id\_hour, pv\_generation, pv\_generation\_unit, temperature, temperature\_unit, radiation\_south, radiation\_east, radiation\_west, radiation\_north, radiation\_unit. \\
+            \hline 
+        
+        \caption{Input data required by FLEX-Operation}
+        \label{tab:dataset}
+    \end{longtable}
+\end{center}
+
 
 \subsection{Decision trees for asking questions}
 
@@ -32,7 +120,7 @@ Finally, the recommendation system seeks to continuously refine and improve the 
 By providing users with tailored recommendations, the system aims to facilitate the adoption of energy technologies, ultimately leading to reduced energy demand and associated costs. 
 
 As noted by Karen Palmer et al. \cite{informationgap}, financial considerations are of primary importance to homeowners when making decisions about energy investments. 
-In line with this understanding, the recommendation system places a strong emphasis on providing transparent cost estimates for energy bills could be saved as well as recommended home energy system configurations. 
+In line with this understanding, the recommendation system places a strong emphasis on providing transparent cost estimates for energy bills as well as recommended home energy system configurations. 
 Additionally, the system seeks to encourage behavior change by providing information and education on climate change and renewable energy sources, aimed at increasing user awareness and understanding of the benefits of sustainable energy practices. 
 To facilitate ongoing improvement and refinement of the recommendation system, a feedback survey button will be incorporated, allowing users to provide both short-term and long-term feedback on the system's performance and recommendations. 
 
