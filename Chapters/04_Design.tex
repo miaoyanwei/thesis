@@ -1,22 +1,33 @@
 \chapter{Design} 
 
-In order to bridge the information gap regarding energy-efficient technologies, this study aims to provide households with knowledge of available technologies in the market. 
-To address the potential issue of information overload, the study proposes a smart home energy recommender to present households with a tailored selection of technologies that better fit their unique home situations, 
+In order to bridge the information gap regarding home energy systems, this study aims to provide households with knowledge of available technologies in the market. 
+To address the potential issue of information overload, the study proposes a home energy system recommender to present households with a tailored selection of technologies that better fit their unique home situations, 
 such as by learning the location of the house, in order to estimate the amount of sunlight it is likely to receive over the course of a year, to evaluate whether installing a \gls{pv} system would be a viable and effective way for the household.
 The learning theory suggests that individuals learn new knowledge by connecting it with existing knowledge and experiences, as this helps to create a framework for understanding and retention of the new information.
-Therefore, by focusing on personalised recommendations, the study hypothesises that households may be more receptive to learning about energy-efficient technologies. 
+Therefore, by focusing on personalised recommendations, the study hypothesises that households may be more receptive to learning about home energy technologies. 
 Additionally, with the intention of nudging house owners towards making informed decisions. 
 
-\section{Understanding current home energy system}
+\section{Design concept}
+The design concept of the home energy system recommender involves the utilisation of personalised recommendations based on the unique situations of households. 
+By gaining a deep understanding of the household's energy demands and supply dynamics, the recommender can offer tailored recommendations to optimise energy efficiency and costs. 
+Through this approach, the recommender not only provides guidance on these technologies but also educates the house owners on the potential benefits of transitioning to more sustainable energy sources. 
+To ensure the effectiveness of the recommendations, clear and concise explanations are provided to enable users to make informed decisions.
+
+
+\section{Input to the system}
 
 
 \subsection{Household profiles}
 
-The concept of household profile has been developed to provide a comprehensive understanding of the energy consumption patterns of residential buildings. 
-This approach takes into account a range of factors, including the external environment, building materials, energy consumption behaviors, and home energy systems. 
-The aim of creating such a profile is to gain insights into the energy demand and supply dynamics of households. 
-This comprehensive analysis also offers insights into the specific factors that contribute to household energy consumption and highlights potential opportunities for tailored improvements to home energy systems. 
-
+The concept of household profile has been developed to gain insights into the energy demand and supply dynamics of households. 
+To ensure the accuracy of this profile, various factors that may impact the household's energy consumption must be taken into consideration, as shown in Figure \ref{fig:profile}, including 
+\emph{
+    the external environment, 
+    building materials, 
+    energy consumption behaviors, 
+    and the current home energy system. 
+}
+By creating such a profile, a comprehensive understanding of the household's situation can be attained, enabling the offering of more tailored and effective recommendations.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Images/household_profile.jpg}
@@ -24,7 +35,7 @@ This comprehensive analysis also offers insights into the specific factors that 
     \label{fig:profile}
   \end{figure}
 
-\subsubsection{Input data by FLEX-Operation model}
+\subsubsection{Input data by FLEX models}
 
 In order to accurately anticipate household's energy costs,
 the FLEX-Operation model takes a set of variables into account,
@@ -47,63 +58,7 @@ and they can be divided into following 15 categories:
     region weather. 
 }
 
-Furthermore, the specific data required within each category is shown in table \ref{tab:dataset}. 
-
-\begin{center}
-    \small
-    \begin{longtable}{ | p{.10\textwidth} | p{.80\textwidth} | }
-        \hline 
-        \multicolumn{1}{|c|}{\textbf{Category}} & \multicolumn{1}{c|}{\textbf{Data}} \\ 
-        \hline 
-        \endfirsthead
-
-        \multicolumn{2}{l}
-        {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-        \hline \multicolumn{1}{|c|}{\textbf{Category}} &
-        \multicolumn{1}{c|}{\textbf{Data}} \\  
-        \endhead
-
-        \multicolumn{2}{|r|}{{Continued on next page}} \\ 
-        \hline
-        \endfoot
-
-        \endlastfoot
-        
-            Behaviour profile & id\_hour, people\_at\_home\_profile\_1, hot\_water\_demand\_profile\_1, appliance\_electricity\_demand\_profile\_1, vehicle\_at\_home\_profile\_1, vehicle\_distance\_profile\_1. \\
-            \hline 
-            Battery & ID\_Battery, capacity, capacity\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit. \\
-            \hline 
-            Behaviour & ID\_Behavior, id\_people\_at\_home\_profile, target\_temperature\_at\_home\_max, target\_temperature\_at\_home\_min, target\_temperature\_not\_at\_home\_max, target\_temperature\_not\_at\_home\_min, shading\_solar\_reduction\_rate, shading\_threshold\_temperature, temperature\_unit, id\_hot\_water\_demand\_profile, hot\_water\_demand\_annual, hot\_water\_demand\_unit, id\_appliance\_electricity\_demand\_profile, appliance\_electricity\_demand\_annual, appliance\_electricity\_demand\_unit, id\_vehicle\_at\_home\_profile, id\_vehicle\_distance\_profile. \\
-            \hline 
-            Boiler & ID\_Boiler, type, power\_max, power\_max\_unit, carnot\_efficiency\_factor. \\
-            \hline 
-            Building & ID\_Building, type, construction\_period\_start, construction\_period\_end, person\_num, Af, Hop, Htr\_w, Hve, CM\_factor, Am\_factor, internal\_gains, effective\_window\_area\_west\_east, effective\_window\_area\_south, effective\_window\_area\_north, grid\_power\_max, supply\_temperature. \\
-            \hline
-            Energy price & ID\_EnergyPrice, id\_electricity, id\_electricity\_feed\_in, id\_gases, price\_unit. \\
-            \hline
-            Heating element & ID\_HeatingElement, power, power\_unit, efficiency. \\
-            \hline 
-            Hot water tank & ID\_HotWaterTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
-            \hline 
-            \gls{pv} & ID\_PV, size, size\_unit. \\
-            \hline
-            Region & ID\_Region, code, year, norm\_outside\_temperature. \\
-            \hline 
-            Space cooling technology & ID\_SpaceCoolingTechnology, efficiency, power, power\_unit. \\
-            \hline 
-            Space heating tank & ID\_SpaceHeatingTank, size, size\_unit, surface\_area, surface\_area\_unit, loss, loss\_unit, temperature\_start, temperature\_max, temperature\_min, temperature\_surrounding, temperature\_unit. \\
-            \hline 
-            Vehicle & ID\_Vehicle, type, capacity, capacity\_unit, consumption\_rate, consumption\_rate\_unit, charge\_efficiency, charge\_power\_max, charge\_power\_max\_unit, discharge\_efficiency, discharge\_power\_max, discharge\_power\_max\_unit, charge\_bidirectional. \\
-            \hline 
-            Energy price & Region, year, id\_hour, electricity\_1, electricity\_2, electricity\_feed\_in\_1, gases\_1. \\
-            \hline 
-            Region weather & region, year, id\_hour, pv\_generation, pv\_generation\_unit, temperature, temperature\_unit, radiation\_south, radiation\_east, radiation\_west, radiation\_north, radiation\_unit. \\
-            \hline 
-        
-        \caption{Input data required by FLEX-Operation}
-        \label{tab:dataset}
-    \end{longtable}
-\end{center}
+Furthermore, the specific data required by the FLEX-Operation model within each category can be found in Appendix \ref{appendix:inputdata}. 
 
 
 \subsection{Decision trees for asking questions}
@@ -112,7 +67,7 @@ A total of 18 questions were raised to collect all the relevant information nece
 In order to optimize the user experience, a decision tree approach was employed, allowing users to navigate through the questionnaire without the need to answer all the questions. 
 
 
-\section{Recommending improvements for home energy system}
+\section{Output to the system}
 
 \subsection{Recommendations}
 
