@@ -1,4 +1,5 @@
 \documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
 
 %Image-related packages
 \usepackage{graphicx}
@@ -33,6 +34,12 @@
 \renewcommand{\arraystretch}{1.5} %The height of each row
 \usepackage{colortbl} %Table cell colour
 \usepackage{longtable}
+
+%Euro symbol
+\usepackage[gen]{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro{}}
+%Unit symbol
+\usepackage{siunitx}
 
 %Header & footer
 \usepackage{fancyhdr}

@@ -62,7 +62,7 @@ Furthermore, the specific data required by the FLEX-Operation model within each 
 
 \subsection{Decision trees for asking questions}
 
-A total of 18 questions, see Table \ref{tab:questions}, were raised to collect all the relevant information necessary for the household profile analysis. 
+A total of 14 questions, see Table \ref{tab:questions}, were raised to collect all the relevant information necessary for the household profile analysis. 
 In order to optimise the user experience, a decision tree approach was employed, allowing users to navigate through the questionnaire without the need to answer all the questions. 
 
 \begin{center}
@@ -76,13 +76,13 @@ In order to optimise the user experience, a decision tree approach was employed,
         House condition & When was the house built? & Knowing the year a house was built can provide insight into its construction materials, such as the composition of the walls. \\
           & Has the house ever been renovated before? & Renovations can include upgrading insulation, replacing windows with energy-efficient ones, installing high-efficiency HVAC systems, sealing air leaks, etc. \\
           & What have been renovated in the house? &   \\
-          \hline
+        \hline
         Energy use & How many people are living in the house? &   \\
           & How often does each adult work from home? &   \\
           & Does anyone in the house have an electric car? &   \\
           & Is there any air conditioner in the house? &   \\
           & What type of heating energy is used in the house? &   \\
-          \hline
+        \hline
         Home energy system  & Is there a photovoltaic (PV) system in the House? & A PV system is a system that uses solar panels to convert sunlight into electricity for use in a building. \\    
           & What is the size of the \gls{pv} system? &  The average size of a \gls{pv} system is 5 kilowatt-peak. \\
           & Is there a battery system in the house? & A home battery system is a device that stores energy produced by solar panels or other sources to be used later when needed. \\
@@ -93,6 +93,8 @@ In order to optimise the user experience, a decision tree approach was employed,
     \label{tab:questions}
     \end{longtable}
 \end{center}
+
+
 
 \section{Output to the system}
 
@@ -133,6 +135,36 @@ At the second layer, users are introduced to the various functionalities and ben
 Finally, at the last layer, users are presented with simulated energy demand and supply data, allowing them to see the potential energy savings that could result from adopting the recommended configurations. 
 
 Through the implementation of a comprehensive approach to explainability, our objective is to offer users an overview of energy technologies, enabling them to gain insight into their energy consumption patterns and to recognize the advantages of shifting towards more sustainable energy systems.
+
+
+\subsection{Investments}
+
+\begin{center}
+    \begin{table}[h]
+    \small
+        \begin{tabular}{ | p{.30\textwidth} | p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth} | }
+            \hline
+            Technology & \multicolumn{4}{ c | }{Cost (\euro{})} \\
+             & Lowest & Highest & Installation & Maintenance \\
+            \hline
+            \gls{pv} system & \SI[per-mode=symbol,bracket-unit-denominator = false]{1957,68}{\per\kW}p & \SI[per-mode=symbol,bracket-unit-denominator = false]{2231,76}{\per\kW}p & included & 0 \\
+            Battery system & \SI[per-mode=symbol,sticky-per,bracket-unit-denominator = false]{790,80}{\per\kWh}  & \SI[per-mode=symbol,sticky-per,bracket-unit-denominator = false]{2520,00}{\per\kWh} & included & 0 \\
+            \gls{sems} & / & 1516,11 & 379,03 & 0 \\
+            \gls{hp}& \SI[per-mode=symbol,bracket-unit-denominator = false]{432,15}{\per\kW} & \SI[per-mode=symbol,bracket-unit-denominator = false]{2370,31}{\per\kW} & included & 0 \\
+            Hot water tank & 1 & 1 & 1 & 0 \\
+            Space heating tank & 1 & 1 & 1 & 0 \\
+            Air conditioner & 1 & 1 & 1 & 0 \\
+            Basement renovation & \SI[per-mode=symbol]{132,12}{\per\metre\squared} & \SI[per-mode=symbol]{157,64}{\per\metre\squared} & included & 0 \\
+            Roof renovation & \SI[per-mode=symbol]{40,95}{\per\metre\squared} & \SI[per-mode=symbol]{409,38}{\per\metre\squared} & included & 0 \\
+            Wall renovation & \SI[per-mode=symbol]{67,57}{\per\metre\squared} & \SI[per-mode=symbol]{408,93}{\per\metre\squared} & included & 0 \\
+            Window renovation & \SI[per-mode=symbol]{364,63}{\per\metre\squared} & \SI[per-mode=symbol]{958,92}{\per\metre\squared} & included & 0 \\
+            \hline
+        \end{tabular}
+    \caption{Investment costs of different technologies}
+    \label{tab:investments}
+    \end{table}
+\end{center}
+
 
 \section{Interactions}
 
