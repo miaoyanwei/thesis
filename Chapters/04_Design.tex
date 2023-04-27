@@ -57,15 +57,42 @@ and they can be divided into following 15 categories:
     energy price,
     region weather. 
 }
-
 Furthermore, the specific data required by the FLEX-Operation model within each category can be found in Appendix \ref{appendix:inputdata}. 
 
 
 \subsection{Decision trees for asking questions}
 
-A total of 18 questions were raised to collect all the relevant information necessary for the household profile analysis. 
-In order to optimize the user experience, a decision tree approach was employed, allowing users to navigate through the questionnaire without the need to answer all the questions. 
+A total of 18 questions, see Table \ref{tab:questions}, were raised to collect all the relevant information necessary for the household profile analysis. 
+In order to optimise the user experience, a decision tree approach was employed, allowing users to navigate through the questionnaire without the need to answer all the questions. 
 
+\begin{center}
+    \small
+    \begin{longtable}{ | p{.15\textwidth} | p{.35\textwidth} | p{.35\textwidth} | }
+        \hline
+        Category & Question & Note \\
+        \hline
+        External environment & Which country does the house belong to? & Understanding the location of the house can provide valuable insight into its environmental factors, such as the amount of sunlight it receives. \\
+        \hline
+        House condition & When was the house built? & Knowing the year a house was built can provide insight into its construction materials, such as the composition of the walls. \\
+          & Has the house ever been renovated before? & Renovations can include upgrading insulation, replacing windows with energy-efficient ones, installing high-efficiency HVAC systems, sealing air leaks, etc. \\
+          & What have been renovated in the house? &   \\
+          \hline
+        Energy use & How many people are living in the house? &   \\
+          & How often does each adult work from home? &   \\
+          & Does anyone in the house have an electric car? &   \\
+          & Is there any air conditioner in the house? &   \\
+          & What type of heating energy is used in the house? &   \\
+          \hline
+        Home energy system  & Is there a photovoltaic (PV) system in the House? & A PV system is a system that uses solar panels to convert sunlight into electricity for use in a building. \\    
+          & What is the size of the \gls{pv} system? &  The average size of a \gls{pv} system is 5 kilowatt-peak. \\
+          & Is there a battery system in the house? & A home battery system is a device that stores energy produced by solar panels or other sources to be used later when needed. \\
+          & What is the capacity of the battery? & The average capacity of a home battery system is around 7 kilowatt-hours. \\
+          & Is there a smart energy management system in the house? &   \\
+        \hline
+    \caption{Survey questions}
+    \label{tab:questions}
+    \end{longtable}
+\end{center}
 
 \section{Output to the system}
 
