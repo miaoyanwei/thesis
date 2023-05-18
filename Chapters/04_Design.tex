@@ -22,26 +22,19 @@ users will not only be guided on these technologies but also be educated on the 
 \subsection{Household profiles}
 
 The concept of household profile has been developed to gain insights into the energy demand and supply dynamics of households. 
-To ensure the accuracy of this profile, various factors that may impact the household's energy consumption must be taken into consideration, as shown in Figure \ref{fig:profile}, including 
-\emph{
-    the external environment, 
-    building materials, 
-    energy consumption behaviors, 
-    and the current home energy system. 
-}
+To ensure the accuracy of this profile, therefore accurately anticipate household's energy costs, 
+various factors that may impact the household's energy consumption must be taken into consideration, 4 categories as shown in Figure \ref{fig:profile}, they are 
+\emph{the external environment, building materials, energy consumption behaviors, and the current home energy system.}
 By creating such a profile, a comprehensive understanding of the household's situation can be attained, enabling the offering of more tailored and effective recommendations.
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/household_profile.jpg}
-    \caption{Household profile}
-    \label{fig:profile}
-  \end{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Images/household_profile.jpg}
+  \caption{Household profile}
+  \label{fig:profile}
+\end{figure}
 
-\subsubsection{Input data by FLEX models}
-
-In order to accurately anticipate household's energy costs,
-the FLEX-Operation model takes a set of variables into account,
-and they can be divided into following 15 categories: 
+The categories were inspired by the FLEX models \cite{newtrends}.
+The models take a set of variables into account when calculating, they can be divided into following 15 categories: 
 \emph{
     behaviour profile,
     battery,
@@ -62,10 +55,12 @@ and they can be divided into following 15 categories:
 Furthermore, the specific data required by the FLEX-Operation model within each category can be found in Appendix \ref{appendix:inputdata}. 
 
 
-\subsection{Decision trees for asking questions}
+\subsection{Households data collection}
 
-A total of 14 questions, see Table \ref{tab:questions}, were raised to collect all the relevant information necessary for the household profile analysis. 
-In order to optimise the user experience, a decision tree approach was employed, allowing users to navigate through the questionnaire without the need to answer all the questions. 
+While collecting more data leads to increased accuracy in simulations, it is crucial to maintain user-friendly by not overwhelming users with excessive information requests. 
+To strike a balance, a set of 14 questions (as outlined in Table \ref{tab:questions}) was developed to gather relevant information for household profile analysis. 
+Using the provided user answers, additional specific information can be inferred. 
+For example, by inputting the construction period of the house, corresponding details such as building materials and sizes can be assumed. 
 
 \begin{center}
     \small
@@ -94,6 +89,8 @@ In order to optimise the user experience, a decision tree approach was employed,
     \label{tab:questions}
     \end{longtable}
 \end{center}
+
+To further enhance user experience, a decision tree approach was implemented, enabling users to navigate through the questionnaire without the obligation to answer all questions.
 
 
 
