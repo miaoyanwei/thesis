@@ -8,7 +8,7 @@ Therefore, by focusing on personalised recommendations, the study hypothesises t
 Meanwhile, nudging house owners towards making informed decisions. 
 
 
-\section{Design concept}
+\section{Design concept: The home energy system recommender}
 
 The home energy system recommender is a software application that integrates the FLEX models,
 offering personalised recommendations to households based on their individual circumstances.
@@ -16,7 +16,7 @@ Through the recommended technology configurations and simulated energy costs,
 users will not only be guided on these technologies but also be educated on the potential benefits of transitioning to more sustainable energy systems. 
 
 
-\section{Input to the system}
+\section{Input to the recommender}
 
 
 \subsection{Household profiles}
@@ -28,13 +28,13 @@ various factors that may impact the household's energy consumption must be taken
 By creating such a profile, a comprehensive understanding of the household's situation can be attained, enabling the offering of more tailored and effective recommendations.
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{Images/household_profile.jpg}
+  \includegraphics[width=0.4\textwidth]{Images/household_profile.jpg}
   \caption{Household profile}
   \label{fig:profile}
 \end{figure}
 
 The categories were inspired by the FLEX models \cite{newtrends}.
-The models take a set of variables into account when calculating, they can be divided into following 15 categories: 
+The models take a set of variables into account when simulating, they can be divided into following 15 categories: 
 \emph{
     behaviour profile,
     battery,
@@ -52,19 +52,19 @@ The models take a set of variables into account when calculating, they can be di
     energy price,
     region weather. 
 }
-Furthermore, the specific data required by the FLEX-Operation model within each category can be found in Appendix \ref{appendix:inputdata}. 
+The specific data required by the FLEX models within each category can be found in Appendix \ref{appendix:inputdata}. 
 
 
 \subsection{Households data collection}
 
 While collecting more data leads to increased accuracy in simulations, it is crucial to maintain user-friendly by not overwhelming users with excessive information requests. 
-To strike a balance, a set of 14 questions (as outlined in Table \ref{tab:questions}) was developed to gather relevant information for household profile analysis. 
+To strike a balance, a set of 13 questions (as outlined in Table \ref{tab:questions}) was developed to gather relevant information for household profile analysis. 
 Using the provided user answers, additional specific information can be inferred. 
 For example, by inputting the construction period of the house, corresponding details such as building materials and sizes can be assumed. 
 
 \begin{center}
-    \small
-    \begin{longtable}{ | p{.15\textwidth} | p{.35\textwidth} | p{.35\textwidth} | }
+  \small
+    \begin{longtable}{ | p{.20\textwidth} | p{.20\textwidth} | p{.45\textwidth} | }
         \hline
         Category & Question & Note \\
         \hline
@@ -79,11 +79,11 @@ For example, by inputting the construction period of the house, corresponding de
           & Is there any air conditioner in the house? &   \\
           & What type of heating energy is used in the house? &   \\
         \hline
-        Home energy system  & Is there a photovoltaic (PV) system in the House? & A PV system is a system that uses solar panels to convert sunlight into electricity for use in a building. \\    
-          & What is the size of the \gls{pv} system? &  The average size of a \gls{pv} system is 5 kilowatt-peak. \\
+        Home energy system  & Is there a photovoltaic (PV) system in the House? & A \gls{pv} system is a system that uses solar panels to convert sunlight into electricity for use in a building. \\    
+          & What is the size of the \gls{pv} system? & The average size of a \gls{pv} system is 5 kilowatt-peak. \\
           & Is there a battery system in the house? & A home battery system is a device that stores energy produced by solar panels or other sources to be used later when needed. \\
           & What is the capacity of the battery? & The average capacity of a home battery system is around 7 kilowatt-hours. \\
-          & Is there a smart energy management system in the house? &   \\
+          & Is there a smart energy management system (SEMS) in the house? & A \gls{sems} is a technology to optimise energy usage, monitor consumption, and enhance energy efficiency. \\
         \hline
     \caption{Survey questions}
     \label{tab:questions}
@@ -91,27 +91,56 @@ For example, by inputting the construction period of the house, corresponding de
 \end{center}
 
 To further enhance user experience, a decision tree approach was implemented, enabling users to navigate through the questionnaire without the obligation to answer all questions.
+As a result, the number of questions to be answered ranges from a maximum of 13 to a minimum of 10, as depicted in Figure \ref{fig:trees}. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Images/trees.jpg}
+  \caption{Question decision trees}
+  \label{fig:trees}
+\end{figure}
 
 
-
-\section{Output to the system}
+\section{Output to the recommender}
 
 \subsection{Recommendations}
 
-An effective home energy system should prioritize minimizing energy waste, reducing dependence on non-renewable fossil fuels, and lowering overall energy costs. Our recommendations are aligned with these fundamental principles and aim to promote sustainable energy practices while also reducing household energy expenditures. 
+An effective home energy system should prioritise 
+\emph{minimizing energy waste, reducing dependence on non-renewable fossil fuels, and lowering overall energy costs. }
+All recommendations aligned with these fundamental principles, 
+aim to promote sustainable energy practices while also reducing household energy expenditures will be presented to users. 
 
-The objectives of the recommendation system are multi-fold. 
-Firstly, the system aims to support homeowners in making informed decisions regarding investments in home energy systems. 
-Additionally, the system intends to encourage behavior change among homeowners by promoting the utilization of renewable energy sources. 
-Finally, the recommendation system seeks to continuously refine and improve the accuracy of its predictive model, ensuring that the recommendations provided are up-to-date and effective. 
-By providing users with tailored recommendations, the system aims to facilitate the adoption of energy technologies, ultimately leading to reduced energy demand and associated costs. 
+\subsubsection{Recommendation orders}
+The recommendations are categorised into different levels, 
+each offering different technology configurations along with their corresponding yearly energy bills. 
+The default order of the recommendations follows a prioritisation based on potential cost savings. 
+Therefore, the configuration that offers the highest amount of money saved will be listed at the top, followed by the second-best money-saving configuration, and so forth. 
+This ordering allows users to easily identify the most financially advantageous options for their energy system.
+In addition to the default ordering, users also have the option to select an alternative ordering rule. 
+The alternative rule ranks the recommendations based on investment cost, with the configurations requiring the least expenses listed at the top. 
+Two distinct ways of ordering options provides users with flexibility, allowing them to prioritise their choices based on their individual financial considerations. 
 
-As noted by Karen Palmer et al. \cite{informationgap}, financial considerations are of primary importance to homeowners when making decisions about energy investments. 
-In line with this understanding, the recommendation system places a strong emphasis on providing transparent cost estimates for energy bills as well as recommended home energy system configurations. 
-Additionally, the system seeks to encourage behavior change by providing information and education on climate change and renewable energy sources, aimed at increasing user awareness and understanding of the benefits of sustainable energy practices. 
-To facilitate ongoing improvement and refinement of the recommendation system, a feedback survey button will be incorporated, allowing users to provide both short-term and long-term feedback on the system's performance and recommendations. 
+%The objectives of the recommendation system are multi-fold. 
+%Firstly, the system aims to support homeowners in making informed decisions regarding investments in home energy systems. 
+%Additionally, the system intends to encourage behavior change among homeowners by promoting the utilization of renewable energy sources. 
+%Finally, the recommendation system seeks to continuously refine and improve the accuracy of its predictive model, ensuring that the recommendations provided are up-to-date and effective. 
+%By providing users with tailored recommendations, the system aims to facilitate the adoption of energy technologies, ultimately leading to reduced energy demand and associated costs. 
+%
+%As noted by Karen Palmer et al. \cite{informationgap}, financial considerations are of primary importance to homeowners when making decisions about energy investments. 
+%In line with this understanding, the recommendation system places a strong emphasis on providing transparent cost estimates for energy bills as well as recommended home energy system configurations. 
+%Additionally, the system seeks to encourage behavior change by providing information and education on climate change and renewable energy sources, aimed at increasing user awareness and understanding of the benefits of sustainable energy practices. 
+%To facilitate ongoing improvement and refinement of the recommendation system, a feedback survey button will be incorporated, allowing users to provide both short-term and long-term feedback on the system's performance and recommendations. 
 
 \subsection{Explainability}
+
+Explainability plays a crucial role in establishing trust among users in Recommendation Systems (\gls{rs}), and this principle holds true for our system as well. 
+A study conducted by Kim et al. \cite{xai4endusers} examined the explainability needs of 20 diverse end-users 
+and revealed that the level of explainability required varied based on participants' backgrounds in AI and their interests in the domain. 
+While there was a general curiosity about AI among participants, only those with a high level of AI expertise or a significant interest in the domain expressed a need for detailed explanations regarding the \gls{rs} system. 
+Therefore, it is essential to provide different levels of explanations to accommodate the varying characteristics of users and meet their specific needs. 
+
+\subsubsection{Explanation}
+
+\subsubsection{Exploration}
 
 In order to provide more comprehensive and understandable recommendations, we have chosen to explain our recommendations from multiple perspectives beyond just cost estimates. 
 Specifically, we have identified 4 key objectives, including \emph{trust, effectiveness, education, and debugging}, as key aspects to incorporate into our explanations. 
@@ -166,14 +195,16 @@ Through the implementation of a comprehensive approach to explainability, our ob
 
 \section{Medium}
 
-\section{Interactions}
 
-\subsection{Interfaces}
+\section{Interfaces}
+
+\subsection{Home page}
 
 To facilitate user understanding of the recommended home energy system configurations and associated costs, our recommendation system will employ a visual and natural language explanation interface. 
 Specifically, an interactive visualization tool will be implemented to enable users to explore and compare different energy system configurations in terms of energy consumption patterns and costs. 
 Additionally, natural language explanations will be provided to further enhance user understanding and engagement with the recommended configurations. 
 
+\subsection{Data collection}
 
 \subsection{Data visualisation}
 
