@@ -64,17 +64,17 @@ For example, by inputting the construction period of the house, corresponding de
 
 \begin{center}
   \small
-    \begin{longtable}{ | p{.20\textwidth} | p{.20\textwidth} | p{.45\textwidth} | }
+    \begin{longtable}{ | p{.15\textwidth} | p{.35\textwidth} | p{.35\textwidth} | }
         \hline
         Category & Question & Note \\
         \hline
         External environment & Where is the house located? & Understanding the location of the house can provide valuable insight into its environmental factors, such as the amount of sunlight it receives. \\
         \hline
-        House condition & When was the house built? & Knowing the year a house was built can provide insight into its construction materials, such as the composition of the walls. \\
+        Building & When was the house built? & Knowing the year a house was built can provide insight into its construction materials, such as the composition of the walls. \\
           & Has the house ever been renovated before? & Renovations can include upgrading insulation, replacing windows with energy-efficient ones, installing high-efficiency HVAC systems, sealing air leaks, etc. \\
           & What have been renovated in the house? &   \\
         \hline
-        Energy use & How many people are living in the house? &   \\
+        Behaviour & How many people are living in the house? &   \\
           & How often does each adult work from home? &   \\
           & Is there any air conditioner in the house? &   \\
           & What type of heating energy is used in the house? &   \\
@@ -133,49 +133,100 @@ Two distinct ways of ordering options provides users with flexibility, allowing 
 \subsection{Explainability}
 
 Explainability plays a crucial role in establishing trust among users in Recommendation Systems (\gls{rs}), and this principle holds true for our system as well. 
-A study conducted by Kim et al. \cite{xai4endusers} examined the explainability needs of 20 diverse end-users 
-and revealed that the level of explainability required varied based on participants' backgrounds in AI and their interests in the domain. 
-While there was a general curiosity about AI among participants, only those with a high level of AI expertise or a significant interest in the domain expressed a need for detailed explanations regarding the \gls{rs} system. 
-Therefore, it is essential to provide different levels of explanations to accommodate the varying characteristics of users and meet their specific needs. 
+When the system generates recommendations for users, it is important for users to understand why a particular configuration is being recommended to them. 
+Explanations aim to bridge this gap by shedding light on the factors that contribute to the recommendation and how they align with the user's preferences (the financial aspect specifically). 
+
 
 \subsubsection{Explanation}
 
-The explanations provided by the system are intended to serve three purposes: effectiveness, trust, and education. 
-\emph{Effectiveness} The system aims to support users in making informed decisions by providing the corresponding yearly energy bill as the first level of explanation. As they can immediately gauge the financial implications and potential cost savings associated with each recommendation. 
-\emph{Trust} By offering more detailed simulated energy consumption patterns as the second level of explanation, users gain a deeper understanding of how the energy bills are calculated in the recommended configurations, thereby building trust and confidence in the accuracy and reliability of the system's outcomes.
-\emph{Education} As the third level of explanation, the system utilises explanations as educational tools to offer users valuable insights into the recommended technologies and their impact on energy bills, furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices.
+The explanations provided by the system are intended to serve three purposes: 
+\emph{effectiveness, trust, and education}. 
+\begin{description}
+  \item[Effectiveness] The system aims to support users in making informed decisions by providing the corresponding yearly energy bill. 
+    As they can immediately gauge the financial implications and potential cost savings associated with each recommendation. 
+  \item[Trust] By offering more detailed simulated energy consumption patterns, users gain a deeper understanding of how the energy bills are calculated in the recommended configurations, 
+    thereby building trust and confidence in the accuracy and reliability of the system's outcomes.
+  \item[Education] The system utilises explanations as educational tools to offer users valuable insights into the recommended technologies and their impact on energy bills, 
+    furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices.
+\end{description}
 
 
 \subsubsection{Exploration}
 
-In order to provide more comprehensive and understandable recommendations, we have chosen to explain our recommendations from multiple perspectives beyond just cost estimates. 
-Specifically, we have identified 4 key objectives, including \emph{trust, effectiveness, education, and debugging}, as key aspects to incorporate into our explanations. 
-\emph{Trust}, we build trust with our users by using reliable data sources and providing transparent services. 
-\emph{Effectiveness}, we strive to enhance the effectiveness of our service by offering recommendations that could actually benefit users economically. 
-\emph{Education}, we seek to educate our users on the importance of environmental protection by sharing relevant knowledge and insights. 
-\emph{De-bugging}, we value user feedback as an important tool for identifying and resolving any issues or bugs in our system, allowing us to continuously improve and refine our service.
-The reasons for offering such explanations are to familiarise users with these technologies, establish accountability in the decision-making process, and encourage a shift towards environmentally conscious behaviour.
-By incorporating these concepts into our explanations, we aim to provide recommendations that are transparent, trustworthy, understandable, and user-centred. 
-
-Our recommendation system employs a three-level explainability framework to enhance user understanding of the recommended home energy system configurations. 
-At the first level, the system provides an explanation in terms of the expected energy bill for the household. 
-At the second level, the system offers a behavioural explanation of energy consumption patterns and the factors driving them. 
-Finally, at the third level, the system aims to increase users' awareness and understanding of renewable energy and environmental protection.
-
-Furthermore, the explanation is divided into three layers. 
-At the first layer, users are provided with a comprehensive summary of their current energy consumption patterns. 
-At the second layer, users are introduced to the various functionalities and benefits of the recommended energy technologies, including cost-saving potential and environmental impact. 
-Finally, at the last layer, users are presented with simulated energy demand and supply data, allowing them to see the potential energy savings that could result from adopting the recommended configurations. 
-
-Through the implementation of a comprehensive approach to explainability, our objective is to offer users an overview of energy technologies, enabling them to gain insight into their energy consumption patterns and to recognize the advantages of shifting towards more sustainable energy systems.
+Beside retrospective explanations, prospective user interfaces can play a significant role in guiding users incrementally toward their goals and enhancing user control and transparency in the recommendation process. 
+According to a study by Siepmann and Chatti \cite{Siepmann2023}, such interfaces have the potential to facilitate the development of a more accurate mental model of the decision-making system.
+Therefore, in our design, by providing interactive and visual interfaces, users are empowered to actively explore and adjust various configurations of the recommended technologies. 
+This level of control allows users to observe and analyse the corresponding simulated results in real-time. 
+As users manipulate the configurations, they gain a better understanding of how changes impact the outcomes. 
+By making the system's workings visible and allowing users to actively participate, users can develop a clearer mental model of how the system functions and how different choices influence the results. 
+This transparency and user empowerment contribute to increased trust and understanding of the decision-making system.
 
 
-\subsection{Investments}
+\subsubsection{Levels of explanations}
+
+In addition, a study conducted by Kim et al. \cite{Kim2023} examined the explainability needs of 20 diverse end-users 
+and revealed that the level of explainability required varied based on participants' backgrounds in AI and their interests in the domain. 
+While there was a general curiosity about AI among participants, only those with a high level of AI expertise or a significant interest in the domain expressed a need for detailed explanations regarding the \gls{rs} system. 
+Therefore, it is essential to provide different levels of explanations to accommodate the varying characteristics of users and meet their specific needs. 
+\begin{description}
+  \item[The first level of explanation] For users who are primarily focused on improving their home energy systems without a deep interest in understanding the underlying system, 
+    this level of explanation presents the recommended configurations, specifying the technology products that should be installed or upgraded in their homes. 
+    Additionally, it provides information on the corresponding yearly energy bills associated with each configuration. 
+    The objective is to ensure that users comprehend the potential benefits of implementing the recommendations. By clearly presenting the recommended configurations and their associated energy bills, users can readily evaluate the potential improvements that can be achieved in terms of energy efficiency and cost savings. 
+  \item[The second level of explanation] For users who have doubts about the recommendations and possess a curiosity about how the system operates, 
+    besides the first level information, this level of explanation offers insights through generated energy consumption patterns and encourages user exploration to understand the underlying workings of the system. 
+    They can observe how different configurations or technology choices impact energy consumption and ultimately influence the calculation of yearly energy bills. 
+    By facilitating user interaction and transparency, the system aims to build trust and alleviate doubts, enhancing user confidence in the system's recommendations.
+  \item[The third level of explanation] This level of explanation focuses on providing cognitive knowledge to users. 
+    It goes beyond the technical aspects of the system and delves into the broader context of environmental protection and sustainability. 
+    Users are encouraged to consider the long-term consequences of their energy-related decisions and their role in contributing to a more sustainable future. 
+    It aims to raise awareness among users, foster a sense of responsibility, and offer additional information and resources for embracing sustainable practices beyond the immediate recommendations of the system.
+\end{description}
+
+
+\subsubsection{Additional information}
+
+In addition to the aforementioned, there are several other techniques that are considered to further support users in their decision-making process. 
+These techniques aim to provide additional information to enhance user understanding, facilitate comparisons, and enable informed choices. 
+\begin{description}
+  \item[Comparison with current situation] To ensure users can verify the accuracy of our system, we provide a valuable reference point by offering simulated versions of their current energy bill and consumption. 
+    This feature allows users to compare the system's simulations with their actual energy usage, enabling them to assess the reliability and accuracy of the recommendations. 
+    By presenting users with their simulated current energy bill and consumption, they can directly observe how closely the system's simulations align with their real-life data. 
+    This serves as a tangible measure of the system's effectiveness and enhances user confidence in its recommendations. 
+    The verification process not only fosters user trust and confidence but also allows us to collect valuable user feedback for continuous improvement.
+    By actively seeking user perspectives and incorporating their feedback, we can refine the algorithms and models, ensuring that the recommendation system evolves and remains responsive to users. 
+  \item[Investment costs] The consideration of supplementary information pertinent to users' investment decisions holds significance. 
+    Hence, we endeavor to furnish users with additional information regarding technology costs. 
+    However, it is imperative to acknowledge that various brands exhibit divergent pricing structures, and the performance or size variations of individual technologies directly influence their corresponding costs. 
+    In light of this, we present users with a range of costs associated with each technology, aiming to facilitate their decision-making process by fostering informed choices. 
+    The specific cost ranges are presented in the Table \ref{tab:investments}.
+  \end{description}
+
+%In order to provide more comprehensive and understandable recommendations, we have chosen to explain our recommendations from multiple perspectives beyond just cost estimates. 
+%Specifically, we have identified 4 key objectives, including \emph{trust, effectiveness, education, and debugging}, as key aspects to incorporate into our explanations. 
+%\emph{Trust}, we build trust with our users by using reliable data sources and providing transparent services. 
+%\emph{Effectiveness}, we strive to enhance the effectiveness of our service by offering recommendations that could actually benefit users economically. 
+%\emph{Education}, we seek to educate our users on the importance of environmental protection by sharing relevant knowledge and insights. 
+%\emph{De-bugging}, we value user feedback as an important tool for identifying and resolving any issues or bugs in our system, allowing us to continuously improve and refine our service.
+%The reasons for offering such explanations are to familiarise users with these technologies, establish accountability in the decision-making process, and encourage a shift towards environmentally conscious behaviour.
+%By incorporating these concepts into our explanations, we aim to provide recommendations that are transparent, trustworthy, understandable, and user-centred. 
+%
+%Our recommendation system employs a three-level explainability framework to enhance user understanding of the recommended home energy system configurations. 
+%At the first level, the system provides an explanation in terms of the expected energy bill for the household. 
+%At the second level, the system offers a behavioural explanation of energy consumption patterns and the factors driving them. 
+%Finally, at the third level, the system aims to increase users' awareness and understanding of renewable energy and environmental protection.
+%
+%Furthermore, the explanation is divided into three layers. 
+%At the first layer, users are provided with a comprehensive summary of their current energy consumption patterns. 
+%At the second layer, users are introduced to the various functionalities and benefits of the recommended energy technologies, including cost-saving potential and environmental impact. 
+%Finally, at the last layer, users are presented with simulated energy demand and supply data, allowing them to see the potential energy savings that could result from adopting the recommended configurations. 
+%
+%Through the implementation of a comprehensive approach to explainability, our objective is to offer users an overview of energy technologies, enabling them to gain insight into their energy consumption patterns and to recognize the advantages of shifting towards more sustainable energy systems.
 
 \begin{center}
-    \begin{table}[h]
+    \begin{table}[h!]
     \small
-        \begin{tabular}{ | p{.30\textwidth} | p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth} | }
+        \begin{tabular}{ | p{.20\textwidth} | p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth}  p{.15\textwidth} | }
             \hline
             Technology & \multicolumn{4}{ c | }{Cost (\euro{})} \\
              & Lowest & Highest & Installation & Maintenance \\
@@ -201,12 +252,20 @@ Through the implementation of a comprehensive approach to explainability, our ob
 
 \subsubsection{Presetation}
 
-Natural-language-based
-Visualisation
-List
+Both Natural language (\gls{nl}) and Information visualisation (\gls{iv}) techniques are used to serve different purposes and enhance the overall clarity and effectiveness of conveying information to users. 
+\gls{nl} explanations, in the form of textual descriptions, are utilised to provide detailed information about technology functionalities and costs. 
+Charts are employed to present energy consumption data in a visual format. 
+Visualising energy consumption data of each sector using charts helps to simplify complex information, enabling users to grasp patterns and comparisons more easily. 
+Users can observe the relative contributions of different sectors, identify areas of high or low energy consumption, and explore alternative scenarios or configurations. 
 
 
 \section{Medium}
+
+At present, the service is designed as a one-time interaction where users receive recommendations and may not revisit the system in the near future. 
+Meanwhile, the explanations provided can be presented in a highly detailed manner, as users have the opportunity to carefully read and understand the information. 
+The interactive nature of the system allows users to compare complex data and explore different configurations. 
+A larger screen offers a more comfortable viewing experience, therefore, the current focus is on desktop or larger screens.
+However, considering the prevalent use of smartphones in today's society, it is important to acknowledge the need for a mobile-friendly version of the service. 
 
 
 \section{Interfaces}
