@@ -1,18 +1,18 @@
 \chapter{Development} 
 
-The web application is designed as a client-server architecture, 
+The web application is designed, 
 with the frontend responsible for collecting user data and presenting recommendations and explanations, 
-while the backend handles the processing and analysis of data using the FLEX models.
+while the backend handles the processing and analysis of data using the FLEX models. 
 
 
 \section{Frontend}
 
-The frontend of the web application utilises HTML, CSS, and JavaScript to construct the user interfaces and manage the application's behaviour. 
+The frontend of the web application mainly utilises HTML, CSS, and JavaScript to construct the user interfaces and manage the application's behaviour. 
 HTML is employed to structure the webpage content and define its elements. 
 CSS is used to style and format the appearance of the webpage. 
 JavaScript, on the other hand, adds interactivity and dynamic functionality to the webpage, enabling features such as language switching and server communication. 
+Although the service may not have been specifically designed for smaller screens, a popular front-end framework Bootstrap is also used in our web application to create a responsive user interface that adapts seamlessly to various devices and screen sizes. 
 Furthermore, SurveyJS, an open-source JavaScript form builder library, is integrated into the frontend to provide a convenient solution for creating and embedding surveys within the application. 
-In summary, HTML, CSS, JavaScript, and external tools like SurveyJS are combined in the frontend development to create visually appealing, interactive, and user-friendly interfaces. 
 
 
 \section{Backend}
@@ -25,3 +25,11 @@ Each scenario takes approximately 7 seconds to calculate, and considering the ne
 it would be impractical to make the user wait for the results. 
 To address this issue, we decided to pre-process the data and store it in a database. 
 This approach significantly reduced the time required to identify energy-saving scenarios, allowing for a more efficient user experience.
+
+\subsection{API design}
+
+The API design for the household's energy system and recommendation service follows a RESTful architecture and adheres to the JSON schema presented in this section. 
+
+\subsubsection{JSON Schema Documentation}
+
+Household's energy system and recommendation
