@@ -15,9 +15,13 @@ Furthermore, SurveyJS, an open-source JavaScript form builder library, is integr
 In summary, HTML, CSS, JavaScript, and external tools like SurveyJS are combined in the frontend development to create visually appealing, interactive, and user-friendly interfaces. 
 
 
-\section{Backtend}
+\section{Backend}
 
-Django, a Python-based web framework, is employed as the backend of the web application. 
-This choice is driven by the fact that the FLEX models are written in Python. 
-By using Django, seamless communication between the backend and the models is facilitated. 
-The backend, built with Django, serves as the intermediary between the frontend and the FLEX models, allowing for efficient data processing and retrieval. 
+The backend of the web application utilises Flask, a Python-based web framework, to serve as the intermediary between the frontend and the FLEX models. 
+This choice was made based on the fact that the FLEX models are implemented in Python. 
+Originally, our intention was to enable direct communication between the backend and the models using Python. 
+However, during the development process, we realised that the models' calculations, especially when finding recommended configurations, could be time-consuming. 
+Each scenario takes approximately 7 seconds to calculate, and considering the need to identify multiple scenarios that could save energy costs for the household, 
+it would be impractical to make the user wait for the results. 
+To address this issue, we decided to pre-process the data and store it in a database. 
+This approach significantly reduced the time required to identify energy-saving scenarios, allowing for a more efficient user experience.
