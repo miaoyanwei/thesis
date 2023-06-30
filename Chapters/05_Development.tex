@@ -7,12 +7,27 @@ while the backend handles the processing and analysis of data using the FLEX mod
 
 \section{Frontend}
 
-The frontend of the web application mainly utilises HTML, CSS, and JavaScript to construct the user interfaces and manage the application's behaviour. 
-HTML is employed to structure the webpage content and define its elements. 
-CSS is used to style and format the appearance of the webpage. 
-JavaScript, on the other hand, adds interactivity and dynamic functionality to the webpage, enabling features such as language switching and server communication. 
-Although the service may not have been specifically designed for smaller screens, a popular front-end framework Bootstrap is also used in our web application to create a responsive user interface that adapts seamlessly to various devices and screen sizes. 
-Furthermore, SurveyJS, an open-source JavaScript form builder library, is integrated into the frontend to provide a convenient solution for creating and embedding surveys within the application. 
+The frontend of the web application is responsible for creating an engaging and user-friendly interface using HTML, CSS, and JavaScript. These technologies work together to structure the content, define the visual styles, and add interactivity to the application.
+HTML is used to create the structure of the webpages, CSS is employed to style the visual appearance of the application. 
+JavaScript plays a crucial role in adding interactivity and dynamic functionality to the web application. 
+Additionally, JavaScript is responsible for making asynchronous requests to the server, facilitating communication with the backend.
+To ensure a responsive design, the web application utilises the Bootstrap framework. 
+Although the service is not intended for mobile screens, a responsive user interface that adapts to various devices and screen sizes has been taken into account. 
+
+
+\subsection{Survey}
+
+To incorporate surveys into the web application, we integrated SurveyJS, an open-source JavaScript form builder library. 
+SurveyJS simplifies the process of creating and embedding surveys.
+It supports logic and branching, allowing for dynamic survey behaviour based on user responses, 
+that fulfils our need of presenting corresponding questions according to the answers, as decribed in the design section. 
+
+
+\subsection{Charts}
+
+For chart building, we initially opted for Google Charts, a charting library provided by Google \cite{googlecharts}. 
+However, we encountered difficulties in building multiple columns using Google Charts. 
+As a result, we switched to Highcharts \cite{highcharts}, another powerful charting library written in JavaScript. 
 
 
 \section{Backend}
@@ -23,13 +38,180 @@ Originally, our intention was to enable direct communication between the backend
 However, during the development process, we realised that the models' calculations, especially when finding recommended configurations, could be time-consuming. 
 Each scenario takes approximately 7 seconds to calculate, and considering the need to identify multiple scenarios that could save energy costs for the household, 
 it would be impractical to make the user wait for the results. 
-To address this issue, we decided to pre-process the data and store it in a database. 
+To address this issue, we decided to pre-process the data in the FLEX models and store it in a database. 
 This approach significantly reduced the time required to identify energy-saving scenarios, allowing for a more efficient user experience.
+
 
 \subsection{API design}
 
 The API design for the household's energy system and recommendation service follows a RESTful architecture and adheres to the JSON schema presented in this section. 
 
-\subsubsection{JSON Schema Documentation}
 
-Household's energy system and recommendation
+\subsection{JSON Schema Documentation}
+
+This JSON schema defines the structure and properties of a household's energy system and recommendation.
+
+
+\subsubsection{Household's energy system and recommendation}
+
+
+\subsubsection{Properties}
+
+Table \ref{tab:properties} shows the properties. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+      \hline
+      Name & Type & Description & Required & Default value \\
+      \hline
+      profile & object & An object describing the house's location and number of people. & Yes & - \\
+      \hline
+      current & object & An object describing the house's current energy system configurations, energy data, and costs. & Yes & - \\
+      \hline
+      recom-men-dation & array & A list of recommended configurations that improve the house's energy efficiency. & Yes & - \\
+      \hline
+    \end{tabular}
+    \caption{Properties}
+    \label{tab:properties}
+\end{table}
+
+
+\subsubsection{Properties of profile}
+
+Table \ref{tab:properties_profile} shows the properties of profile. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \hline
+    Name & Type & Description & Required & Default value \\
+    \hline
+    location & string & The location of the house. & Yes & - \\
+    \hline
+    person & integer & The total number of people residing in the house. & Yes & - \\
+    \hline
+    \end{tabular}
+    \caption{Properties of profile}
+    \label{tab:properties_profile}
+\end{table}
+
+
+\subsubsection{Properties of current}
+
+Table \ref{tab:properties_current} shows the properties of current. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \hline
+    Name & Type & Description & Required & Default value \\
+    \hline
+    config & object & An object describing the house's current energy system configurations. & Yes & - \\
+    \hline
+    energy\_data & object & An object describing the energy demand, PV generation, and energy cost. & Yes & - \\
+    \hline
+    \end{tabular}
+    \caption{Properties of current}
+    \label{tab:properties_current}
+\end{table}
+
+
+\subsubsection{Properties of config}
+
+Table \ref{tab:properties_config} shows the properties of config. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \hline
+    Name & Type & Description & Required & Default value \\
+    \hline
+    pv\_size & integer & Determine the size of the PV system. & Yes & - \\
+    \hline
+    battery\_capacity & integer & Determine the capacity of the battery system. & Yes & - \\
+    \hline
+    sems & boolean & Determine the state of a SEMS system. & Yes & - \\
+    \hline
+    heating\_system & boolean & Determine the state of the heating system used.	 & Yes & - \\
+    \hline
+    boiler\_type & string & Determine the type of heating system used. & Yes & - \\
+    \hline
+    building\_renovation & boolean & Determine the state of the renovation. & Yes & - \\
+    \hline
+    \end{tabular}
+    \caption{Properties of config}
+    \label{tab:properties_config}
+\end{table}
+
+
+\subsubsection{Properties of energy\_data}
+
+Table \ref{tab:properties_energydata} shows the properties of energy\_data. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \hline
+    Name & Type & Description & Required & Properties in Database \\
+    \hline
+    energy\_demand & integer & The total energy demand in a year. & Yes \\
+    \hline
+    energy\_generate & integer & The total energy generated by PV in a year. & Yes \\
+    \hline
+    heating & array & The energy demanded for heating in the house for each month. & Yes & E\_Heating\_HP\_out + Q\_HeatingElement \\
+    \hline
+    cooling & array & The energy demanded for cooling in the house for each month. & Yes & E\_RoomCooling \\
+    \hline
+    appliance & array & The energy demanded by all appliances in the house for each month. & Yes & BaseLoadProfile \\
+    \hline
+    hotwater & array & The energy demanded for hot water in the house for each month. & Yes & E\_DHW\_HP\_out \\
+    \hline
+    pv & string & The energy generated from PV in the house for each month. & Yes & PhotovoltaicProfile \\
+    \hline
+    energy\_bill\_year & integer & The total yearly energy cost. & Yes & - \\
+    \hline
+    \end{tabular}
+    \caption{Properties of energy\_data}
+    \label{tab:properties_energydata}
+\end{table}
+
+
+\subsubsection{Properties of recommendation}
+
+Table \ref{tab:properties_recommendation} shows the properties of recommendation. 
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \hline
+    Name & Type & Description & Required & Default value \\
+    \hline
+    config & object & An object describing the recommended energy system configurations. & Yes & - \\
+    \hline
+    energy\_data & object & An object describing the energy demand, PV generation, and energy cost. & Yes & - \\
+    \hline
+    investment\_cost & integer & The annualised investment cost for the recommended configuration. & Yes & - \\
+    \hline
+    \end{tabular}
+    \caption{Properties of recommendation}
+    \label{tab:properties_recommendation}
+\end{table}
+
+
+\subsubsection{Example JSON data}
+
+\begin{verbatim}
+"energy_data": {
+    "energy_demand": 0,
+    "energy_generate": 0,
+    "heating": [0,0,0,0,0,0,0,0,0,0,0,0],
+    "cooling": [0,0,0,0,0,0,0,0,0,0,0,0],
+    "appliance": [0,0,0,0,0,0,0,0,0,0,0,0],
+    "hotwater": [0,0,0,0,0,0,0,0,0,0,0,0],
+    "pv": [0,0,0,0,0,0,0,0,0,0,0,0],
+    "energy_bill_year": 0
+},
+\end{verbatim}
+
+All the JSON data can be found in the appedix \ref{appendix:example_JSON}. 
