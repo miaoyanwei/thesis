@@ -227,7 +227,7 @@ These techniques aim to provide additional information to enhance user understan
             \hline
             \gls{sems} & A Smart Energy Management System (SEMS) can optimise energy usage by adjusting heating and cooling systems, lighting, and other energy-consuming devices to minimise energy waste; and turning off or reducing energy usage during periods of low occupancy or when energy prices are high. \\
             \hline
-            \gls{hp}&  A heat pump is a device that transfers heat from one place to another, providing both heating and cooling for spaces. \\
+            \gls{hp} &  A heat pump is a device that transfers heat from one place to another, providing both heating and cooling for spaces. \\
             \hline
             Hot water tank & A hot water tank is a device used to store domestic hot water for use in homes. The hot water in the tank can be used in sinks, showers, or appliances. \\
             \hline
@@ -435,5 +435,44 @@ The survey consisted of the following questions:
 \end{itemize}
 
 
-\subsection{Analysis}
+\subsection{Analysis of usability testing}
 
+The evaluation of the service involved collecting responses from the participants through a survey (see Appendix \ref{appendix:responses}). 
+Overall, the participants demonstrated a good understanding of the website's purpose, which is focused on energy and cost savings in households. 
+However, it should be noted that one participant (Participant 3) provided somewhat unclear answers, and the responses to text-based questions were overly simplistic.
+Regarding the usability of the website, the majority of participants (4 out of 5) found the instructions to be clear and considered the web interface visually appealing. 
+Additionally, they reported that the website was easy to use and understand, indicating a positive user experience.
+The participants expressed positive feedback regarding the understandability of the recommendations. 
+Three out of five participants gave high scores of 9/10 or full marks when rating the ease of understanding the recommendations. 
+In terms of the time taken to receive the recommendations, most participants indicated that they spent less than 5 minutes, which aligns with the desired design goal.
+The feedback provided by the participants also highlighted several areas for improvement and enhancement of the service. 
+The following suggestions were made:
+
+\begin{itemize}
+  \item Allow users to go back to previous questions.
+  \item Provide more assistance to help users find the correct options.
+  \item Use ``photovoltaic" instead of ``PV" for better clarity.
+  \item Provide more explanations about \gls{pv} and \gls{sems} to enhance understanding of these terms and their role in the energy system. 
+  \item Incorporate a wider variety of selection elements, beyond just clicks, to enhance user interaction.
+  \item Improve the usefulness of the step tracer by indicating the exact number of questions.
+  \item Provide suggested minimal or maximal temperatures instead of having users input an ideal temperature range.
+  \item Include more information about the final investment and the time required to recoup the investment.
+  \item Display corresponding results for different PV sizes to assist users in determining the most suitable size.
+  \item Make the survey questions feel more like a friendly inquiry rather than a formal questionnaire.
+\end{itemize}
+
+
+\section{Iteration}
+
+After identifying the areas that required improvement based on the feedback, several redesigns were implemented.
+Firstly, a "back" button was added to allow users to navigate to previous questions easily.
+To simplify the options and facilitate decision-making, the number of available choices was reduced, while an indication of the most average option was provided.
+To enhance understanding, each technology now includes an explanation of its functionality as a helpful hint.
+Two types of selection elements were introduced: dropdown selection and tab bar selection, providing users with different interaction experiences.
+Since the exact number of questions to be answered by each participant could not be guaranteed, it was decided to temporarily hide the step tracker. 
+This was done to avoid providing confusing or inaccurate indications.
+The temperature range question was removed to streamline the survey and make it more user-friendly, as the range is typically common to most people.
+To facilitate decision-making, annualised costs were presented to help users determine the techno-economic viability of the recommendations. 
+Additionally, calculations were also performed to assist users in identifying the most suitable \gls{pv} sizes to invest in.
+Due to time constraints, incorporating more playful elements into the questionnaire was not prioritised. 
+This remains an area for future consideration and further development. 
