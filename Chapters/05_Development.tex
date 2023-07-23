@@ -15,9 +15,9 @@ To ensure a responsive design, the web application utilises the Bootstrap framew
 Although the service is not intended for mobile screens, a responsive user interface that adapts to various devices and screen sizes has been taken into account. 
 
 
-\subsection{Survey}
+\subsection{Questionnaire}
 
-To incorporate surveys into the web application, we integrated SurveyJS, an open-source JavaScript form builder library. 
+To incorporate questionnaires into the web application, we integrated SurveyJS, an open-source JavaScript form builder library. 
 SurveyJS simplifies the process of creating and embedding surveys.
 It supports logic and branching, allowing for dynamic survey behaviour based on user responses, 
 that fulfils our need of presenting corresponding questions according to the answers, as decribed in the design section. 
@@ -42,13 +42,9 @@ To address this issue, we decided to pre-process the data in the FLEX models and
 This approach significantly reduced the time required to identify energy-saving scenarios, allowing for a more efficient user experience.
 
 
-\subsection{API design}
-
-The API design for the service follows a RESTful architecture and adheres to the JSON schema presented in this section. 
-
-
 \subsection{JSON Schema Documentation}
 
+The API design for the service follows a RESTful architecture and adheres to the JSON schema presented in this section. 
 This JSON schema defines the structure and properties of a household's energy system and recommendation.
 
 
@@ -229,8 +225,8 @@ Additionally, it includes an investment\_cost property indicating the annualised
 
 The JSON data example can be found in the appedix \ref{appendix:example_JSON}. 
 
-\subsection{Endpoint}
+\subsection{Endpoints}
 
-The API exposes \textcolor{cyan}{3 endpoints} to retrieve data,
+The API exposes \textcolor{cyan}{5 endpoints} to retrieve data,
 they are scenario\_id, recommendations and energy\_data.
 The endpoints accept HTTP GET requests and returns JSON responses. 
