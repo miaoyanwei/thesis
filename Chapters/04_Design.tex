@@ -214,18 +214,12 @@ In our case, the explanations provided by the system are intended to serve three
     thereby building trust and confidence in the accuracy and reliability of the system's outcomes. (Figure \ref{fig:trust})
     \begin{figure}[h]
       \centering
-      \includegraphics[width=\textwidth]{Images/trust.png}
+      \includegraphics[width=0.6\textwidth]{Images/trust.png}
       \caption{Trust}
       \label{fig:trust}
     \end{figure}
   \item[Education] The system utilises explanations as educational tools to offer users valuable insights into the recommended technologies and their impact on energy bills, 
-    furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices. (Figure \ref{fig:education})
-    \begin{figure}[h]
-      \centering
-      \includegraphics[width=\textwidth]{Images/education.png}
-      \caption{Education}
-      \label{fig:education}
-    \end{figure}
+    furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices.
 \end{description}
 
 
@@ -233,12 +227,17 @@ In our case, the explanations provided by the system are intended to serve three
 
 Beside retrospective explanations, prospective user interfaces can play a significant role in guiding users incrementally toward their goals and enhancing user control and transparency in the recommendation process. 
 According to a study by Siepmann and Chatti \cite{Siepmann2023}, such interfaces have the potential to facilitate the development of a more accurate mental model of the decision-making system.
-Therefore, in our design, by providing interactive and visual interfaces, users are empowered to actively explore and adjust various configurations of the recommended technologies. 
+Therefore, in our design, by providing interactive and visual interfaces, users are empowered to actively explore and adjust various configurations of the recommended technologies (Figure \ref{fig:exploration}). 
 This level of control allows users to observe and analyse the corresponding simulated results in real-time. 
 As users manipulate the configurations, they gain a better understanding of how changes impact the outcomes. 
 By making the system's workings visible and allowing users to actively participate, users can develop a clearer mental model of how the system functions and how different choices influence the results. 
 This transparency and user empowerment contribute to increased trust and understanding of the decision-making system.
-
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Images/exploration.png}
+  \caption{Exploration}
+  \label{fig:exploration}
+\end{figure}
 
 \subsubsection{Levels of explanations}
 
@@ -250,15 +249,33 @@ Therefore, it is essential to provide different levels of explanations to accomm
   \item[The first level of explanation] For users who are primarily focused on improving their home energy systems without a deep interest in understanding the underlying system, 
     this level of explanation presents the recommended configurations, specifying the technology products that should be installed or upgraded in their homes. 
     Additionally, it provides information on the corresponding yearly energy bills associated with each configuration. 
-    The objective is to ensure that users comprehend the potential benefits of implementing the recommendations. By clearly presenting the recommended configurations and their associated energy bills, users can readily evaluate the potential improvements that can be achieved in terms of energy efficiency and cost savings. 
+    The objective is to ensure that users comprehend the potential benefits of implementing the recommendations. By clearly presenting the recommended configurations and their associated energy bills, users can readily evaluate the potential improvements that can be achieved in terms of energy efficiency and cost savings. (Figure \ref{fig:level1})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.4\textwidth]{Images/level1.png}
+      \caption{First level of explanation}
+      \label{fig:level1}
+    \end{figure}
   \item[The second level of explanation] For users who have doubts about the recommendations and possess a curiosity about how the system operates, 
     besides the first level information, this level of explanation offers insights through generated energy consumption patterns and encourages user exploration to understand the underlying workings of the system. 
     They can observe how different configurations or technology choices impact energy consumption and ultimately influence the calculation of yearly energy bills. 
-    By facilitating user interaction and transparency, the system aims to build trust and alleviate doubts, enhancing user confidence in the system's recommendations.
+    By facilitating user interaction and transparency, the system aims to build trust and alleviate doubts, enhancing user confidence in the system's recommendations. (Figure \ref{fig:level2})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{Images/level2.png}
+      \caption{Second level of explanation}
+      \label{fig:level2}
+    \end{figure}
   \item[The third level of explanation] This level of explanation focuses on providing cognitive knowledge to users. 
     It goes beyond the technical aspects of the system and delves into the broader context of environmental protection and sustainability. 
     Users are encouraged to consider the long-term consequences of their energy-related decisions and their role in contributing to a more sustainable future. 
-    It aims to raise awareness among users, foster a sense of responsibility, and offer additional information and resources for embracing sustainable practices beyond the immediate recommendations of the system.
+    It aims to raise awareness among users, foster a sense of responsibility, and offer additional information and resources for embracing sustainable practices beyond the immediate recommendations of the system. (Figure \ref{fig:level3})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{Images/level3.png}
+      \caption{Third level of explanation}
+      \label{fig:level3}
+    \end{figure}
 \end{description}
 
 
