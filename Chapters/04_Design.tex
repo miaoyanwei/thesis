@@ -24,11 +24,13 @@ These findings suggest that homeowners prioritise the financial aspects of energ
 Surprisingly, preferences related to environmental sustainability (``Green") and the potential increase in property values do not appear to significantly influence their decisions.
 
 From the pre-study, we discovered that the FLEX models hold immense potential as an ideal tool to aid homeowners in making decisions about their energy technology investments. 
-These models incorporate a wide range of factors, allowing for relatively accurate predictions of energy consumption and associated energy bills according to their configurations. 
+These models incorporate a wide range of factors and consider the entire energy system, 
+this enables them to make relatively accurate predictions of energy consumption and associated energy bills. 
 As we learned from the survey, the financial aspect is a primary consideration for homeowners, 
-and the FLEX models can provide detailed financial insights, empowering them to make well-informed decisions regarding their energy systems.
-The proposed recommender system will leverage the FLEX models to suggest technologies that have the potential to save energy costs. 
-For instance, by learning the location of the house, in order to estimate the amount of sunlight it is likely to receive over the course of a year, to evaluate whether installing a \gls{pv} system would be a viable and economic way for the household.
+and the FLEX models can provide detailed financial insights, empowering them to make well-informed decisions regarding their house situations.
+The proposed recommender will use the FLEX models to propose technology configurations that can potentially result in energy cost savings for homeowners. 
+For instance, by learning the situation and the current energy system of the house, FLEX models can estimate current energy costs based on assumptions about their energy consumption habits. 
+Subsequently, the models assess the estimated energy costs for various differnt energy systems and identify technology configurations that can potentially lead to cost savings. 
 With the use of these models, homeowners can gain a deeper understanding of the potential outcomes and benefits associated with different energy technology choices, leading to more optimised and cost-effective decisions for their homes.
 
 
@@ -36,9 +38,11 @@ With the use of these models, homeowners can gain a deeper understanding of the 
 
 The home energy system recommender is a software application that integrates the FLEX models,
 offering personalised recommendations to households based on their individual circumstances.
-Through the recommended technology configurations and simulated energy costs, 
+Through the recommended technology configurations and estimated energy costs, 
 users will not only be guided on these technologies but also be educated on the potential benefits of transitioning to more sustainable energy systems. 
-Therefore, the personalised home energy system recommender serves as the answer to the first research question. 
+Additionally, the current version of the recommender is limited to single-family houses, as the FLEX models are not yet designed to estimate energy consumption for buildings that share walls with other structures. 
+
+The personalised home energy system recommender, therefore, serves as the answer to the first research question of the study. 
 
 
 \section{Input to the recommender}
@@ -46,11 +50,11 @@ Therefore, the personalised home energy system recommender serves as the answer 
 
 \subsection{Household profiles}
 
-The concept of household profile has been developed to gain insights into the energy demand and supply dynamics of households. 
+The concept of household profile has been developed to generate information about the energy demand and supply dynamics of households. 
 To ensure the accuracy of this profile, thereby accurately anticipate household's energy costs, 
 various factors that may impact the household's energy consumption must be considered, 4 categories as shown in Figure \ref{fig:profile}, they are 
 \emph{the external environment, building materials, energy consumption behaviors, and the current home energy system.}
-By creating such a profile, a comprehensive understanding of the household's situation can be attained, enabling the offering of more tailored and effective recommendations.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.4\textwidth]{Images/household_profile.jpg}
@@ -82,16 +86,17 @@ The specific data required by the FLEX models within each category can be found 
 
 \subsection{Households data collection}
 
-While collecting more detailed data leads to increased accuracy in simulations in FLEX models, it is crucial to maintain user-friendly by not overwhelming users with excessive information requests. 
-To strike a balance, a set of 13 questions (as outlined in Table \ref{tab:questions}) was developed to gather relevant information for household profile analysis. 
-Using the provided user answers, additional specific information can be inferred. 
-For example, by inputting the construction period of the house, corresponding details such as building materials and sizes can be assumed. 
+To achieve a balance between accuracy and user-friendliness in the FLEX models, we carefully developed a set of 13 questions (as presented in Table \ref{tab:questions}) to collect relevant information for household profiles. To achieve a balance between accuracy and user-friendliness in the FLEX models, we carefully developed a set of 13 questions (as presented in Table \ref{tab:questions}) to collect relevant information for household profiles. 
+These questions were designed to avoid overwhelming users with excessive information requests while still providing sufficient data for accurate simulations.
+Furthermore, the user's answers to these questions enable the system to infer additional specific information. 
+For instance, by inputting the construction period of the house, the system can assume corresponding details such as building materials and sizes.
+All of these design decisions were thoroughly discussed with experts, and their analysis and agreement ensured the efficacy of the approach.
 
 \begin{center}
   \small
     \begin{longtable}{ | p{.15\textwidth} | p{.35\textwidth} | p{.35\textwidth} | }
         \hline
-        Category & Question & Note \\
+        \textbf{Category} & \textbf{Question} & \textbf{Note} \\
         \hline
         External environment & Where is the house located? & Understanding the location of the house can provide valuable insight into its environmental factors, such as the amount of sunlight it receives. \\
         \hline
@@ -110,7 +115,7 @@ For example, by inputting the construction period of the house, corresponding de
           & What is the capacity of the battery? & The average capacity of a home battery system is around 7 kilowatt-hours. \\
           & Is there a smart energy management system (SEMS) in the house? & A \gls{sems} is a technology to optimise energy usage, monitor consumption, and enhance energy efficiency. \\
         \hline
-    \caption{Survey questions}
+    \caption{Household profile questions}
     \label{tab:questions}
     \end{longtable}
 \end{center}
@@ -120,40 +125,49 @@ As a result, the number of questions to be answered ranges from a maximum of 13 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Images/trees.jpg}
-  \caption{Question decision trees}
+  \caption{Order of household profile questions}
   \label{fig:trees}
 \end{figure}
 
 
 \section{Output from the recommender}
 
-
 \subsection{Recommendations}
 
 A sustainable home energy system should prioritise \emph{energy-efficiency, reducing dependence on non-renewable fossil fuels, and lowering overall energy costs}. 
-All recommendations aligned with these fundamental principles, 
-aim to promote sustainable energy practices while also reducing household energy costs. 
-The energy technologies recommended to users are for generating renewable energy, managing energy usage, and improving energy efficiency. 
-For example, the recommended technologies include the \gls{pv} system, the battery system, the \gls{sems} system, \gls{hp}, and house renovation, as they contribute to energy efficiency improvements.
+All the recommendations provided by our system align with these fundamental principles. 
+Our main objective is to promote sustainable energy practices, with a particular focus on helping users reduce their household energy costs.
+For instance, if a user does not has a cooling system in place, the system would not suggest installing an air conditioner, as it may impact the energy bill and is considered an unsustainable act.
+The recommended energy technologies encompass various solutions for generating renewable energy, managing energy usage, and improving overall energy efficiency. 
 An overview of the recommended technologies and their functionalities can be found in Table \ref{tab:introduction}.
 
 
 \subsubsection{Recommendation rules}
 
 The recommendation generation process follows a rule-based approach. 
-By employing the FLEX models, our system identifies configurations that can lead to lower energy bills compared to the user's current situation.
-However, to avoid overwhelming users with an excessive number of recommendations resulting from the various arrangement combinations of technologies, particularly when accounting for different sizes, 
-we aim to provide recommendations that offer tangible financial benefits to users.
-To achieve this, we considered three distinct perspectives.
-Firstly, we present the most techno-economic solution, which compares the annualised investment costs and the annual energy cost to determine the configuration that yields the highest financial advantage for households. 
-Secondly, we offer the solution with the highest energy bill savings, disregarding investment costs,
-since investment costs may vary across different areas, and there is a possibility that users can find cheaper options for implementing the recommended technologies. 
-This allows users to gain insights into the most energy-efficient configurations available for their homes. 
-Lastly, we provide the solution with the lowest investment cost, enabling users to identify a cheaper step towards enhancing their home energy system.
-In addition, we empower users to customise the energy system according to their specific needs and preferences in the detail page. 
-Presenting recommendations from three perspectives while allowing customisation is believed to be an appropriate balance. 
-The efficacy of this approach will be evaluated during the testing phase.
+By employing the FLEX models, the system identifies configurations that can lead to lower energy bills compared to the user's current situation.
+However, to prevent overwhelming users with an excessive number of recommendations resulting from the various combinations of technologies, particularly when accounting for different sizes, 
+we focus on three distinct perspectives related to financial aspects for the recommendations, see Figure \ref{fig:categories}.
 
+\begin{description}
+  \item[Cost-benefit] The first perspective is the most techno-economic solution, which compares the annualised investment costs with the annual energy cost to determine the configuration that offers the highest financial advantage for households. 
+  This approach takes into account the financial feasibility of implementing the recommended technologies.
+  \item[Save the most] The second perspective focuses solely on the energy bill savings, disregarding investment costs. 
+  We offer this recommendation because investment costs may vary across different areas, and users may find cheaper options for implementing the recommended technologies.
+  This perspective also allows users to gain insights into the most energy-efficient configurations available for their homes.
+  \item[Lowest investment] The third perspective is the solution with the lowest investment cost, enabling users to identify a cost-effective first step towards enhancing their home energy system.
+\end{description}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Images/rec_categories.png}
+  \caption{3 categories of recommendations}
+  \label{fig:categories}
+\end{figure}
+
+In addition, we provide users with the flexibility to customise the energy system according to their specific needs and preferences for those recommendations. 
+This customisation option allows users to see changes in corresponding configurations based on their preferences.
+We believe that presenting recommendations from three perspectives while allowing customisation strikes an appropriate balance, offering users a tailored and manageable set of options to make informed decisions about their home energy system.
 
 %\subsubsection{Ordering of recommendations}
 %
@@ -189,11 +203,29 @@ In our case, the explanations provided by the system are intended to serve three
 \emph{effectiveness, trust, and education}. 
 \begin{description}
   \item[Effectiveness] The system aims to support users in making informed decisions by providing the corresponding yearly energy bill. 
-    As they can immediately gauge the financial implications and potential cost savings associated with each recommendation. 
-  \item[Trust] By offering more detailed simulated energy consumption patterns, users gain a deeper understanding of how the energy bills are calculated in the recommended configurations, 
-    thereby building trust and confidence in the accuracy and reliability of the system's outcomes.
+    As they can immediately gauge the financial implications and potential cost savings associated with each recommendation. (Figure \ref{fig:effectiveness})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{Images/effectiveness.png}
+      \caption{Effectiveness}
+      \label{fig:effectiveness}
+    \end{figure}
+  \item[Trust] By offering more detailed estimated energy consumption patterns, users gain a deeper understanding of how the energy bills are calculated in the recommended configurations, 
+    thereby building trust and confidence in the accuracy and reliability of the system's outcomes. (Figure \ref{fig:trust})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{Images/trust.png}
+      \caption{Trust}
+      \label{fig:trust}
+    \end{figure}
   \item[Education] The system utilises explanations as educational tools to offer users valuable insights into the recommended technologies and their impact on energy bills, 
-    furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices.
+    furthermore, the system can also provide information about the broader context of climate change, helping users understand the larger picture and the importance of sustainable energy practices. (Figure \ref{fig:education})
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{Images/education.png}
+      \caption{Education}
+      \label{fig:education}
+    \end{figure}
 \end{description}
 
 
@@ -320,10 +352,23 @@ These techniques aim to provide additional information to enhance user understan
 \subsubsection{Presentation}
 
 Both Natural language (\gls{nl}) and Information visualisation (\gls{iv}) techniques are used to serve different purposes and enhance the overall clarity and effectiveness of conveying information to users. 
-\gls{nl} explanations, in the form of textual descriptions, are utilised to provide detailed information about technology functionalities and costs. 
-Charts are employed to present energy consumption data in a visual format. 
+\gls{nl} explanations, as shown in Figure \ref{fig:nl}, in the form of textual descriptions, are utilised to provide detailed information about technology functionalities and costs. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Images/nl.png}
+  \caption{NL explanation}
+  \label{fig:nl}
+\end{figure}
+
+Charts are employed to present energy consumption data in a visual format, as shown in Figure \ref{fig:iv}. 
 Visualising energy consumption data of each sector using charts helps to simplify complex information, enabling users to grasp patterns and comparisons more easily. 
 Users can observe the relative contributions of different sectors, identify areas of high or low energy consumption, and explore alternative scenarios or configurations. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Images/iv.png}
+  \caption{IV explanation}
+  \label{fig:iv}
+\end{figure}
 
 
 \section{Medium}
@@ -346,11 +391,11 @@ While not all pages are covered, the focus is on highlighting the interfaces tha
 The homepage (Figure \ref{fig:homepage}) of the website serves the purpose of informing participants about the functionality and process of the service. 
 Several factors related to usability are considered in the design and content of the home page:
 \begin{description}
-  \item[Purpose introduction] The homepage should clearly communicate the purpose of the service, highlighting its main objective and benefits for participants, in order to help users understand the core function and value proposition of the website.
-  \item[Explanation of steps] A 2-step explanation is provided to guide users through the process of using the service even before they begin, this is to ensure that users are mentally prepared for the service and have a clear roadmap to follow. 
-  \item[A time indicator] The estimated time required to complete the questionnaire is provided to users as a feature to mentally prepare them for the task at hand. By indicating the expected time commitment, users can have a better understanding of the anticipated duration of their engagement with the system. 
-  \item[Data privacy information] Users are informed about the data handling practices and security measures implemented by the website. Additionally, users also have the opportunity to delve deeper into the specifics of data handling practices by accessing more detailed information. The privacy policy can be found in Appendix \ref{appendix:privacy}. 
-  \item[Involvement of organisations] The homepage introduces the relevant organisations involved in the development and operation of the service to establish credibility in the reliability and expertise of the system.
+  \item[Purpose explaining] The homepage should clearly communicate the purpose of the service, highlighting its main objective and benefits for participants, in order to help users understand the core function and value proposition of the website.
+  \item[Instruction] A 2-step instruction is provided to guide users through the process of using the service before they begin, this is to ensure that users are mentally prepared for the service and have a clear roadmap to follow. 
+  \item[Time indicator] The estimated time required to complete the questionnaire is provided to users as a feature to mentally prepare them for the task at hand. By indicating the expected time commitment, users can have a better understanding of the anticipated duration of their engagement with the system. 
+  \item[Policy] Users are informed about the data handling practices and security measures implemented by the website. Additionally, users also have the opportunity to delve deeper into the specifics of data handling practices by accessing more detailed information. The privacy policy can be found in Appendix \ref{appendix:privacy}. 
+  \item[Organisations involved] The homepage introduces the relevant organisations involved in the development and operation of the service to establish credibility in the reliability and expertise of the system.
   \item[Contact details] Email addresseses is provided to allow participants to reach out for support, clarification, or any other inquiries they may have.
   \item[Language options] The service offers language options in both English and German to cater to a broader audience in Europe.
 \end{description}
