@@ -1,32 +1,43 @@
 \chapter{Evaluation}
 
-In this chapter, we present the evaluation of our IT artefact. 
-The evaluation study focuses on two main aspects. 
-Firstly, we assess the effectiveness of the explanations provided to users in helping them understand why specific configurations were recommended for their home energy systems.
-Secondly, we evaluate whether the information presented through the explanations has an impact on users' attitudes, such as increased awareness of energy-efficient technologies or a stronger inclination to adopt them. 
- 
+In this section, we present the evaluation of our IT artefact, aimed at addressing the two research questions.
+The evaluation study focuses on two key dimensions. 
+Firstly, we examine the effectiveness of the system in enhancing users' comprehension of the recommended energy technologies and their advantages. 
+Secondly, we gauge the level of trust that users place in the recommendations provided by the system. 
+Additionally, we seek to explore whether the information presented influences users' perspectives and behaviours, 
+encompassing aspects such as their familiarity with energy-efficient technologies and their inclination to adopt them. 
+
 As highlighted in Nunes and Jannach's summary \cite{Nunes2020}, 
 there is no universally accepted definition of what constitutes a correct or best explanation, 
 evaluating the quality of explanations relies on capturing the subjective perceptions of users and monitoring the impact of these explanations on user behaviour, 
 and user studies have been the predominant research method for assessing explanations in recommender systems.
-Aligned with this understanding, our goal of capturing the subjective perceptions of users regarding the explanations provided and assessing any changes in their attitudes, 
+Aligned with this understanding, our goal of capturing the subjective perceptions of users regarding the explanations provided and their attitude changes, 
 we have made the decision to conduct real-user studies. 
 
-Due to time constraints imposed by the university's requirements for a master's thesis, we conducted qualitative user studies with \textcolor{cyan}{6} participants in the \textcolor{cyan}{South Germany} region. 
+Due to time constraints imposed by the university's requirements for a master's thesis, we conducted qualitative user studies with \textcolor{cyan}{7} participants in the \textcolor{cyan}{Germany}. 
 While the sample size was small, qualitative studies provide valuable insights into rusers' perceptions, attitudes, and experiences.
+
+
+\subsubsection{Goals}
+
+The evaluation aims to achieve two primary objectives.
+\begin{itemize}
+  \item Efficacy in addressing the information gap.
+  \item Level of trust towards the recommendations.
+\end{itemize}
 
 
 \section{Semi-structured interviews}
 
-The interview will follow the structured format to gather insights from the participants. 
+The interview proceeds through the following steps.
 \begin{enumerate}
   \item Express gratitude to the interviewee for their willingness to participate and introduce myself briefly.
   \item Provide a brief recap of the project, emphasising its purposes, and clarify the specific objectives of the interview.
-  \item Inform the interviewee about the expected duration of the interview (approximately 40 minutes) and assure them that the recording will be used solely for transcription purposes, ensuring confidentiality.
-  \item Explain that the interview will involve participants using the web service to explore and discover recommendations tailored to their home energy systems.
+  \item Inform the interviewee about the expected duration of the interview and assure them that the recording will be used solely for transcription purposes, ensuring confidentiality.
+  \item Explain that the interview will involve participants using the web service to explore and discover recommendations tailored to their home situations.
   \item Prior to participants using the service, they will be asked a series of questions pertaining to their demographic information and initial perceptions of energy technologies.
-  \item Allow participants to utilise the service using a laptop.
-  \item Once the participants have interacted with the service, other questions will be asked.
+  \item Ask participants to use the service using a laptop and encourage them to think-out-loud while navigating.
+  \item When the participants finished interacting with the service, other questions will be asked.
   \item Inquire if the interviewee has any remaining questions or uncertainties.
   \item Express appreciation once again for their participation and inform them that they can reach out with any further concerns or inquiries they may have.
 \end{enumerate}
@@ -38,7 +49,7 @@ The target users of this study are individuals residing in Germany who own or li
 The participants were recruited using a convenient sampling approach. 
 We employed a snowball technique by reaching out to acquaintances to inquire about their residence in a single-family house or their knowledge of individuals residing in such properties. 
 
-The interview invitation is:
+The interview invitation is composed as follows:
 
 \textbf{Are you a homeowner in Germany with a single-family house? 
 Do you want to make informed investment decisions about energy technologies for your home? }
@@ -49,7 +60,7 @@ Rest assured that all information shared will be kept confidential and anonymise
 The interview will be conducted either remotely or in person as you prefer. 
 If you are interested, please choose your preferred time slot by clicking on the following link: https://calendar.app.google/F8RnWSKmnofz3cHf6. 
 If you have any questions, feel free to contact us.
-Thank you for considering to collaborate on the project!
+Thank you for considering collaborating on the project! 
 
 Every participant took part in the evaluation signed a consent form (Appendix \ref{appendix:consentform}) before starting. 
 A summary of the participants can be found in Table \ref{tab:participants}.
@@ -77,19 +88,6 @@ A summary of the participants can be found in Table \ref{tab:participants}.
 \end{table}
 
 
-\subsubsection{Goals}
-
-The evaluation aims to achieve two primary objectives.
-\begin{itemize}
-  \item Efficacy in addressing the information gap.
-  \item Level of trust towards the recommendations.
-\end{itemize}
-Firstly, we want to see how well the system help users understand the suggested technologies for their home energy systems. 
-Secondly, we want to measure how much trust users have for the system's recommendations. 
-Furthermore, we are also curious to know if the information we provide affects users' opinions and actions, 
-encompassing factors such as their familiarity with energy-efficient technologies and the inclination to adopt them.
-
-
 \subsubsection{Material}
 
 \begin{itemize}
@@ -108,7 +106,7 @@ My name is Yanwei Miao, and I am currently working on my master's thesis project
 We developed a web service to help homeowners like you make informed decisions about investing in energy technologies for your homes. 
 Our aim is to provide personalised recommendations based on your specific circumstances, enabling you to determine the economic feasibility of implementing these technologies. 
 To proceed, we kindly request your cooperation in answering a few questions about your background. 
-This will help us gain a better understanding of your knowledge and perspective on AI and energy. 
+This will help us gain a better understanding of your knowledge and perspective on AI and energy technologies. 
 Once is complete, we will guide you through the web service to obtain personalised recommendations for your home energy system. 
 While using the service, we encourage you to think out loud and share your thoughts and observations. 
 Afterward, we will conduct an interview to gather your feedback and insights. 
@@ -118,7 +116,7 @@ Are you ready to begin?
 
 \subsubsection{Questions}
 
-The interview questions can be categorised into four main categories: \emph{demography, explainability, attitude change, and additional questions}.
+The interview questions can be categorised into four main categories: \emph{demography, knowledge, trust, and additional questions}.
 Demography questions focus on gathering information about the background of the interviewees, aiming to identify any demographic factors that may influence their interest in more detailed explanations.
 Explainability questions are designed to assess the clarity and comprehensibility of the provided explanations, aiming to determine if they are clear and understandable to the participants. 
 Attitude change questions are divided into two parts: before using the service and after using the service. 
@@ -174,8 +172,8 @@ They could be an opportunity to explore additional insights or address any speci
 \subsubsection{Closure}
 
 Thank you so much for taking the time to participate in this interview session. 
-I truly appreciate your willingness to share your thoughts and experiences with us. 
-If you have any further questions, concerns, or additional insights that you would like to share, please don't hesitate to reach out.
+I sincerely appreciate your willingness to share your thoughts and experiences with us. 
+If you have any further questions, concerns, or additional insights that you would like to share, please don't hesitate to reach out. 
 
 
 \section{Future work: Kano survey}
@@ -185,7 +183,7 @@ In our project, we aim to also incorporate the Kano model survey (Table \ref{tab
 We plan to integrate this survey directly into the web service, allowing individuals who have interacted with the service online to voluntarily complete the survey.
 Through the integration of the Kano survey into the web service, we have the opportunity to collect insights from users who engage with the service online. 
 This will enable us to assess whether the inclusion of specific features in the service brings delight to our users.
-This assessment will help us determine the necessity of explanations in the service. 
+This assessment will help us determine the necessity of explanations in the service as well. 
 
 \begin{center}
   \small
@@ -237,9 +235,9 @@ This assessment will help us determine the necessity of explanations in the serv
 
 \section{Analysis}
 
-Table \ref{tab:participants_perceptions} summarises the participants' overall knowledge and interest in AI and energy, 
-as well as their perspective on the altitude change and trust in the recommendations following their use of the service.  
-In addition, all transcripts can be found in the appendix \ref{appendix:transcription}.
+Table \ref{tab:participants_perceptions} provides an overview of participants' general understanding and interest in artificial intelligence and energy technologies, 
+along with their perspectives on the service's learnability and explainability. 
+Moreover, the complete interview transcripts are available in Appendix \ref{appendix:transcription}.
 
 \begin{table}[h!]
   \centering
@@ -260,7 +258,7 @@ In addition, all transcripts can be found in the appendix \ref{appendix:transcri
     PG & Yes & Yes & No & Yes \\
     \hline
   \end{tabular}
-  \caption{Participants' perceptions about AI and energy}
+  \caption{Participants' understanding and perspectives}
   \label{tab:participants_perceptions}
 \end{table}
 
