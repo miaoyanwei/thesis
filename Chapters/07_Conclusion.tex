@@ -1,29 +1,70 @@
 \chapter{Conclusion}
 
-According to Fogg's Persuasive design framework, 
-German households exhibit strong "motivations" for adopting energy-efficient technologies. 
-The proposed practice of a home energy system recommender works effectively as a "promot," as it provides valuable insights and recommendations to support their decision-making process. 
-However, there is a lack of "ability" for many households, 
-as they express frustration about the financial challenges of affording a one-time investment to purchase such technologies. 
-They are hopeful that policy makers will take action to address this issue and provide support to make energy-efficient technologies more accessible and affordable.
+Our exploration to bridge the gap in knowledge about energy technologies and the associated benefits for homeowners has yielded valuable insights. 
+The journey began with an initial phase of pre-study, where our goal was to uncover existing tools and practices that could empower homeowners to embrace sustainable energy solutions. 
+This initial investigation paved the way for the development of an innovative home energy system recommender, anchored in the FLEX models. 
+These models assist in identifying technology configurations tailored to specific situations, leading to potential energy cost savings that directly benefit homeowners financially. 
+Throughout the development process, we placed significant emphasis on explainability, ensuring the recommendations were trusted.  
+By engaging with real participants through user testing, we have gained a deeper understanding of their expectations, concerns, and attitudes. 
+The insights gathered from the feedback lead us to a conclusive observation.
 
-For participants who did not think about invest into energy technologies,
-they change their minds and 
 
-Seems like the estimated inestment costs work more as a reference for people who have knowledge or interest in energy technologies. 
-They don't take that estimates too seriously. 
+\section{Filling the information gap}
 
-For older participants, online tool is not very ideal to understand. 
+The provision of such information has a significant impact on the decision-making process of homeowners, even though there are slight variations in how different users respond. 
+These differences are indicative of varying perspectives of positive attitudes towards investing in such technologies. 
+For instance, users who had limited knowledge about energy technologies before using the service expressed that they gained a better understanding of various technologies, their functionalities, and the potential financial benefits.
+On the other hand, participants who were already knowledgeable in this field learned about the advantages of different configurations and sizes of technologies tailored to their unique situations.
+Moreover, trust remains a pivotal factor within a recommender system, consistently highlighting its critical role in nurturing user confidence and promoting well-informed decisions.
 
-All participants are aware of climate change and wish to do something to help, but this is not really a main factor for them to invest into expensive energy technologies. 
+Furthermore, in line with findings from previous studies and surveys, our research also underscores the significance of financial considerations as a primary motivating factor. 
+Nevertheless, a notable shift has been observed in our study, where participants express an increasing desire to contribute to environmental protection.
+It is noteworthy that this ``green" inclination, while supportive, remains secondary to the financial aspect due to the substantial investment required. 
+However, this change in attitude is distinct from the situation observed in a survey conducted in 2013 \cite{informationgap}. 
+This evolving perspective suggests a growing awareness and willingness among individuals to embrace more sustainable energy decisions.
 
-All participants mentioned they need goenrment supports since the initial investment of energy technologies requires a lot of money, current measure is not enough. 
+In accordance with Fogg's Persuasive Design framework \cite{Fogg2009}, 
+where he outlined how technology can effectively influence and change behaviours by considering three key factors: 
+\emph{motivation, promot, and ability}. 
+Our study reveals that a considerable number of households exhibit strong ``motivations" to embrace energy-efficient technologies. 
+The introduced home energy system recommender functions effectively as a ``promot," providing valuable insights and recommendations that facilitate their decision-making processes. 
+Although, there is room for improvement in this artefact, as discussed in the previous chapter,
+for instance, users with varying levels of knowledge about energy technologies express their specific informational needs.
+We envision a promising future for tools like ours.
+These tools not only provide valuable information to households, fostering financial benefits and sustainable energy investments, while also potentially aiding in mitigating climate change. 
+However, a prevalent ``ability" constraint emerges among many households,
+primarily associated with financial challenges that impede one-time investments in these technologies. 
+This underscores the necessity for policy interventions aimed at improving accessibility and affordability. 
+We believe that through the provision of accessible information and collaborative efforts from governing bodies, this trend of embracing sustainable energy choices will continue to grow, encouraging more individuals to take meaningful steps toward a greener and more energy-efficient future.  
+
+
+\section*{Explainability of the recommender}
+
+Explainability holds paramount importance in the design of recommendation systems, as highlighted in the preceding chapter. 
+As elucidated earlier, a multitude of factors underpinning trust and distrust in recommendations and the system were discerned from user feedback. 
+Our recommender system offers three levels of explanations. 
+all users appreciate the first level of explanation, which focuses on annual energy bills,
+the comparison with their current annual energy bill contribute significantly to their trust into the system.  
+Most users also found the second level of explanaiton that is showing energy consumption patterns is interesting to know,
+this visualisation of usage data align with their understanding of their consumption habbits also contribute to their trust. 
+Allowing them to spontaneously change the configurations and compare results has also contributed big in their trust of the system,
+when seeing the differences of each configurations make them believe that the system is actually working for individual situations, not just recommending similar configurations to everyone. 
+However, the third level of explanation seems less attractive to many users,
+this may due to less appealing interaction design, since huge text is not very friendly to users.
+Additonally, many already knew about the concept of climate change and related information, 
+some users also treated it as a self checking list when reading the part what can individuals do to slow down cliamte change process. 
+We can probably say this level of explanation doesn't really contribute much to user's trust of the recommendations nor system,
+but it works nice as an additonal information for users to reflect their current behaviours. 
+
 
 \section{Limitations}
 
-Half of the participants are having related knowledge. 
-The age ranges of them are very limited, they are either around 30, or around 60. 
-
-Lack of a consideration of the rebound effect \cite{Herring2007}. 
-Doesn't consider if it will also lead to household's behaviour change and lead to miscalculation of the energy bills. 
-However, the model takes the comfort lifestyle as a reference, so we believe the rebound effect would not affect too much. 
+This study encompasses certain limitations that need to be considered when interpreting the findings.
+\begin{description}
+    \item[Small sample size:] The study was conducted with a limited number of participants, which might affect the generalisability of the results.
+    \item[Limited knowledge background:] Due to many reasons, approximately half of the participants possessed related knowledge in the energy domain. This could potentially introduce bias into their perceptions and responses.
+    \item[Restricted age range:] The age distribution of participants was concentrated around two main age groups: approximately 30 and 60 years old. This might limit the representation of perspectives across a wider age spectrum.
+    \item[Age-related technology challenges:] The study revealed that participants aged 65 and above encountered challenges when engaging with the online tool. Older participants indicated a preference for face-to-face consultations and demonstrated a higher level of trust in human experts rather than in an AI system. This could affect the overall user experience and willingness to adopt the recommendations, particularly among older demographics.
+    \item[Neglect of rebound effect:] The study does not account for the rebound effect \cite{Herring2007}, which refers to potential changes in household behavior that could result from adopting energy-efficient technologies. This omission could lead to an oversight in estimating the actual impact on energy consumption and subsequent energy bills. While the model assumes a certain comfort lifestyle as a baseline, any significant behavioral shifts induced by the recommended changes might not be accurately captured. Nevertheless, given the reference to comfort lifestyle, it is assumed that the rebound effect's influence would likely be minimal.
+\end{description}
+These limitations highlight areas for further investigation and potential refinement of the home energy system recommender to accommodate a broader range of users and contexts.
