@@ -1,16 +1,20 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
+
+%Margin
+\usepackage[margin=2.5cm]{geometry}
+
+%Style
+\usepackage{mathptmx} %Time font
+\setlength{\parskip}{1em plus 0.25em minus 0.25em}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{setspace}
+\usepackage{csquotes}
 
 %Image-related packages
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[export]{adjustbox}
-
-%Style
-\setlength{\parskip}{1em plus 0.25em minus 0.25em}
-\renewcommand{\baselinestretch}{1.5}
-\usepackage{setspace}
-\usepackage{csquotes}
 
 %Table of contents, figures, tables
 \usepackage[nottoc]{tocbibind}
@@ -81,6 +85,8 @@
 
 \appendixpage
 \addappheadtotoc
+\pagenumbering{roman}
+\setcounter{page}{1}
 \input{Appendices/A.tex}
 \input{Appendices/B.tex}
 \input{Appendices/C.tex}
@@ -95,5 +101,4 @@
 
 %Written insurance
 \input{Cover/Insurance.tex}
-
 \end{document}
