@@ -1,4 +1,4 @@
-\chapter{Development} 
+\chapter{Development}
 
 The web application is designed, 
 with the frontend responsible for collecting user data and presenting recommendations and explanations, 
@@ -41,96 +41,102 @@ Each scenario takes approximately seven seconds to calculate, and considering th
 it would be impractical to make the user wait for the results. 
 To address this issue, we decided to pre-process the data in the FLEX models and store it in a database. 
 This approach significantly reduced the time required to identify energy-saving scenarios, allowing for a more efficient user experience.
+Once again, I would like to express my sincere gratitude to Raphael Schlarb for his assistance in programming the backend for this service 
+and for providing guidance on the 'Backend' chapter. 
 
 
-\subsection{JSON Schema Documentation}
+\subsection{API}
 
-The API design for the service follows a RESTful architecture and adheres to the JSON schema presented in this section. 
-This JSON schema defines the structure and properties of a household's energy system and recommendation.
+The API uses the HTTP protocol and follows a RESTful architecture. 
+It provides a set of endpoints that allow users to communicate, via JSON objects,
+with the recommendation system.
+The api consists of four endpoint: \textbf{scenario}, \textbf{recommendation}, \textbf{energy\_data}, and \textbf{energy\_cost}.
+For each endpoint, there is one of two HTTP methods available: \textbf{GET} and \textbf{POST}.
+
+The following sections describe the endpoints and their properties in more detail.
 
 
-\subsubsection{Properties}
+\subsubsection{Scenario}
 
-The documentation consists of four main components: config, energy\_data, recommendation, and profile as displayed in table \ref{tab:properties}. 
-
+The \textbf{scenario} endpoint is used via a \textbf{POST} method to send a \textbf{scenario configration} to the recommendation system
+and receive a unique \textbf{scenario id} in return. A scenario configuration is a JSON object that describes the house and it's energy system
+(see table \ref{tab:properties_config}). The \textbf{scenario id} is an integer that uniquely identifies the scenario.
 \begin{table}[h!]
     \centering
-    \scriptsize
-    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
-      \hline
-      Name & Type & Description \\
-      \hline
-      config & object & An object describing the house's energy system configurations. \\
-      \hline
-      energy\_data & object & An object describing the house's energy data and costs. \\
-      \hline
-      recommendation & object & An object of recommended configuration that improve the house's energy efficiency. \\
-      \hline
-      profile & object & An object describing the house's location and number of people. \\
-      \hline
-    \end{tabular}
-    \caption{Properties}
-    \label{tab:properties}
-\end{table}
-
-
-\subsubsection{Properties of config}
-
-The config property, as shown in table \ref{tab:properties_config}, captures the current energy system configurations, including parameters such as pv\_size, battery\_capacity, sems, heating\_system, heating\_system\_type, and building\_renovation.
-
-\begin{table}[h!]
-    \centering
-    \scriptsize
-    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
+    \small
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.35\textwidth} | p{.10\textwidth} | } 
     \hline
-    Name & Type & Description \\
+    Name & Type & Description & Optional \\
     \hline
-    pv\_size & integer & Determine the size of the PV system. \\
+    battery & object & JSON object describing the installed battery & Yes \\
     \hline
-    battery\_capacity & integer & Determine the capacity of the battery system. \\
+    building & object & JSON object describing the building & No \\
     \hline
-    sems & boolean & Determine the state of a SEMS system. \\
+    pv & object & JSON object describing the installed PV & Yes \\
     \hline
-    heating\_system & boolean & Determine the state of the heating system used. \\
-    \hline
-    boiler\_type & string & Determine the type of heating system used. \\
-    \hline
-    building\_renovation & boolean & Determine the state of the renovation. \\
+    boiler & object & JSON object describing the installed boiler & Yes \\
+    \hline 
+    region & object & JSON object describing the region & No \\
     \hline
     \end{tabular}
-    \caption{Properties of config}
+    \caption{Scenario configuration}
     \label{tab:properties_config}
 \end{table}
 
 
-\subsubsection{Properties of energy\_data}
+\subsubsection{Recommendation}
 
-The energy\_data property contains data related to energy demand, PV generation, and energy cost. 
-It includes properties like energy\_demand, energy\_generate, heating, cooling, appliance, hotwater, pv, and energy\_bill\_year.
-See table \ref{tab:properties_energydata}. 
+By sending a \textbf{GET} request to the \textbf{recommendation} endpoint with a \textbf{scenario id} as a parameter,
+the user can retrieve a list of recommended configurations and their associated costs.
+The schema of an entry in the list is described in table \ref{tab:properties_recommendation_endpoint}.
 
 \begin{table}[h!]
     \centering
-    \scriptsize
-    \begin{tabular}{ | p{.15\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.15\textwidth} | } 
+    \small
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
     \hline
-    Name & Type & Description & Properties in Database \\
+    Name & Type & Description \\
     \hline
-    energy\_demand & integer & The total energy demand in a year. & - \\
+    config & object & A scenario configuration as described in table \ref{tab:properties_config}. \\
     \hline
-    energy\_generate & integer & The total energy generated by PV in a year. & - \\
+    type & string & Recommendation type. Can be either "Lowest Energy Bill", "Lowest Investment", "Cost Benefit". \\
     \hline
-    heating & array & The energy demanded for heating in the house for each month. & E\_Heating\_HP\_out + Q\_HeatingElement \\
+    yearly\_bill & integer & The yearly energy bill for the recommended configuration. \\
     \hline
-    cooling & array & The energy demanded for cooling in the house for each month. & E\_RoomCooling \\
+    investment\_cost & integer & The annualised investment cost for the recommended configuration. \\
     \hline
-    appliance & array & The energy demanded by all appliances in the house for each month. & BaseLoadProfile \\
+    \end{tabular}
+    \caption{Recommendation entry}
+    \label{tab:properties_recommendation_endpoint}
+\end{table}
+
+
+\subsubsection{Energy data}
+
+The energy\_data property contains data related to energy demand and PV generation (See table \ref{tab:properties_energydata}).  
+By sending a \textbf{GET} request to the \textbf{energy\_data} endpoint with a \textbf{scenario id} as a parameter,
+the user can retrieve the energy\_data for the scenario.
+
+\begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{ | p{.20\textwidth} | p{.10\textwidth} | p{.40\textwidth} | } 
     \hline
-    hotwater & array & The energy demanded for hot water in the house for each month. & E\_DHW\_HP\_out \\
+    Name & Type & Description\\
     \hline
-    pv & string & The energy generated from PV in the house for each month. & PhotovoltaicProfile \\
+    total\_demand & integer & The total energy demand in a year.\\
     \hline
-    energy\_bill\_year & integer & The total yearly energy cost. & - \\
+    total\_generate & integer & The total energy generated by PV in a year.\\
+    \hline
+    boiler & array & The energy demanded for heating in the house for each month.\\
+    \hline
+    cooling & array & The energy demanded for cooling in the house for each month.\\
+    \hline
+    appliance & array & The energy demanded by all appliances in the house for each month.\\
+    \hline
+    hotwater & array & The energy demanded for hot water in the house for each month.\\
+    \hline
+    pv & integer & The energy generated from PV in the house for each month.\\
     \hline
     \end{tabular}
     \caption{Properties of energy\_data}
@@ -138,75 +144,32 @@ See table \ref{tab:properties_energydata}.
 \end{table}
 
 
-\subsubsection{Properties of recommendation}
+\subsubsection{Energy cost}
 
-The recommendation component represents a list of recommended configurations that can improve the house's energy efficiency. 
-As listed in table \ref{tab:properties_recommendation}, each recommendation includes properties similar to the config and energy\_data properties in the current component. 
-Additionally, it includes an investment\_cost property indicating the annualised investment cost for the recommended configuration. 
-
-\begin{table}[h!]
-    \centering
-    \scriptsize
-    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
-    \hline
-    Name & Type & Description \\
-    \hline
-    config & object & An object describing the recommended energy system configurations. \\
-    \hline
-    energy\_data & object & An object describing the energy demand, PV generation, and energy cost. \\
-    \hline
-    investment\_cost & integer & The annualised investment cost for the recommended configuration. \\
-    \hline
-    \end{tabular}
-    \caption{Properties of recommendation}
-    \label{tab:properties_recommendation}
-\end{table}
-
-
-\subsubsection{Properties of profile}
-
-As table \ref{tab:properties_profile} shows, the profile component provides information about the house's location and the number of people residing in it. 
-It includes properties such as location and person.
+The energy\_cost property contains data related to energy cost (See table \ref{tab:properties_energycost})
+and can be retrieved by sending a \textbf{GET} request to the \textbf{energy\_cost} endpoint with a \textbf{scenario id} as a parameter.
 
 \begin{table}[h!]
     \centering
-    \scriptsize
-    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
+    \small
+    \begin{tabular}{ | p{.20\textwidth} | p{.10\textwidth} | p{.40\textwidth} | } 
     \hline
-    Name & Type & Description \\
+    Name & Type & Description\\
     \hline
-    location & string & The location of the house. \\
-    \hline
-    person & integer & The total number of people residing in the house. \\
+    yearly\_bill & integer & The total energy cost in a year.\\
     \hline
     \end{tabular}
-    \caption{Properties of profile}
-    \label{tab:properties_profile}
+    \caption{Properties of energy\_cost}
+    \label{tab:properties_energycost}
 \end{table}
 
 
-\subsubsection{Example JSON data}
+\subsection{Usage}
 
-\begin{verbatim}
-"energy_data": {
-    "total_generate": <int>,
-    "total_demand": <int>,
-    "boiler": <int[12]>,
-    "cooling": <int[12]>,
-    "appliance": <int[12]>,
-    "hotwater": <int[12]>,
-    "pv": <int[12]>
-},
-\end{verbatim}
+A user can interact with the API by sending HTTP requests to the endpoints described above.
+The usual workflow is as follows:
 
-The JSON data example can be found in the appedix \ref{appendix:example_JSON}. 
-
-\subsection{Endpoints}
-
-The API exposes five endpoints to retrieve data,
-they are survey\_scenario, scenario, recommendation, energy\_data, and eenergy\_cost.
-The endpoints accept HTTP GET requests and returns JSON responses. 
-
-
-Presently, the web service is accessible to all users via \url{http://flex-model.org:8080/}. 
-While the service is currently tailored for users in Germany, there are future plans to extend its coverage to various other European countries. 
+In the initial step the user sends a \textbf{POST} request to the \textbf{scenario} endpoint with a \textbf{scenario configuration} as a parameter
+and receives a \textbf{scenario id} in return.
+Then, the user sends a \textbf{GET} request to the \textbf{recommendation}, \textbf{energy\_data}, or \textbf{energy\_cost} endpoint with the \textbf{scenario id} as a parameter
+to retrieve the desired data.
