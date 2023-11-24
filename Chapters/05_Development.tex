@@ -49,74 +49,28 @@ The API design for the service follows a RESTful architecture and adheres to the
 This JSON schema defines the structure and properties of a household's energy system and recommendation.
 
 
-\subsubsection{Household's energy system and recommendation}
-
-
 \subsubsection{Properties}
 
-The documentation consists of three main components: profile, current, and recommendation as displayed in table \ref{tab:properties}. 
+The documentation consists of four main components: config, energy\_data, recommendation, and profile as displayed in table \ref{tab:properties}. 
 
 \begin{table}[h!]
     \centering
     \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
       \hline
-      Name & Type & Description & Required & Default value \\
+      Name & Type & Description \\
       \hline
-      profile & object & An object describing the house's location and number of people. & Yes & - \\
+      config & object & An object describing the house's energy system configurations. \\
       \hline
-      current & object & An object describing the house's current energy system configurations, energy data, and costs. & Yes & - \\
+      energy\_data & object & An object describing the house's energy data and costs. \\
       \hline
-      recom-men-dation & array & A list of recommended configurations that improve the house's energy efficiency. & Yes & - \\
+      recommendation & object & An object of recommended configuration that improve the house's energy efficiency. \\
+      \hline
+      profile & object & An object describing the house's location and number of people. \\
       \hline
     \end{tabular}
     \caption{Properties}
     \label{tab:properties}
-\end{table}
-
-
-\subsubsection{Properties of profile}
-
-As table \ref{tab:properties_profile} shows, the profile component provides information about the house's location and the number of people residing in it. 
-It includes properties such as location and person.
-
-\begin{table}[h!]
-    \centering
-    \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
-    \hline
-    Name & Type & Description & Required & Default value \\
-    \hline
-    location & string & The location of the house. & Yes & - \\
-    \hline
-    person & integer & The total number of people residing in the house. & Yes & - \\
-    \hline
-    \end{tabular}
-    \caption{Properties of profile}
-    \label{tab:properties_profile}
-\end{table}
-
-
-\subsubsection{Properties of current}
-
-The current component describes the house's current energy system configurations, energy data, and costs. 
-It consists of two properties: config and energy\_data. 
-See table \ref{tab:properties_current}.
-
-\begin{table}[h!]
-    \centering
-    \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
-    \hline
-    Name & Type & Description & Required & Default value \\
-    \hline
-    config & object & An object describing the house's current energy system configurations. & Yes & - \\
-    \hline
-    \makecell{energy\_\\data} & object & An object describing the energy demand, PV generation, and energy cost. & Yes & - \\
-    \hline
-    \end{tabular}
-    \caption{Properties of current}
-    \label{tab:properties_current}
 \end{table}
 
 
@@ -127,21 +81,21 @@ The config property, as shown in table \ref{tab:properties_config}, captures the
 \begin{table}[h!]
     \centering
     \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
     \hline
-    Name & Type & Description & Required & Default value \\
+    Name & Type & Description \\
     \hline
-    pv\_size & integer & Determine the size of the PV system. & Yes & - \\
+    pv\_size & integer & Determine the size of the PV system. \\
     \hline
-    \makecell{battery\_\\capacity} & integer & Determine the capacity of the battery system. & Yes & - \\
+    battery\_capacity & integer & Determine the capacity of the battery system. \\
     \hline
-    sems & boolean & Determine the state of a SEMS system. & Yes & - \\
+    sems & boolean & Determine the state of a SEMS system. \\
     \hline
-    \makecell{heating\_\\system} & boolean & Determine the state of the heating system used.	 & Yes & - \\
+    heating\_system & boolean & Determine the state of the heating system used. \\
     \hline
-    \makecell{boiler\_\\type} & string & Determine the type of heating system used. & Yes & - \\
+    boiler\_type & string & Determine the type of heating system used. \\
     \hline
-    \makecell{building\_\\renovation} & boolean & Determine the state of the renovation. & Yes & - \\
+    building\_renovation & boolean & Determine the state of the renovation. \\
     \hline
     \end{tabular}
     \caption{Properties of config}
@@ -158,25 +112,25 @@ See table \ref{tab:properties_energydata}.
 \begin{table}[h!]
     \centering
     \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \begin{tabular}{ | p{.15\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.15\textwidth} | } 
     \hline
-    Name & Type & Description & Required & Properties in Database \\
+    Name & Type & Description & Properties in Database \\
     \hline
-    \makecell{energy\_\\demand} & integer & The total energy demand in a year. & Yes & - \\
+    energy\_demand & integer & The total energy demand in a year. & - \\
     \hline
-    \makecell{energy\_\\generate} & integer & The total energy generated by PV in a year. & Yes & - \\
+    energy\_generate & integer & The total energy generated by PV in a year. & - \\
     \hline
-    heating & array & The energy demanded for heating in the house for each month. & Yes & \makecell{E\_\\Heating\_\\HP\_out \\+ Q\_\\Heating\\Element} \\
+    heating & array & The energy demanded for heating in the house for each month. & E\_Heating\_HP\_out + Q\_HeatingElement \\
     \hline
-    cooling & array & The energy demanded for cooling in the house for each month. & Yes & \makecell{E\_\\Room\\Cooling} \\
+    cooling & array & The energy demanded for cooling in the house for each month. & E\_RoomCooling \\
     \hline
-    appliance & array & The energy demanded by all appliances in the house for each month. & Yes & \makecell{BaseLoad\\Profile} \\
+    appliance & array & The energy demanded by all appliances in the house for each month. & BaseLoadProfile \\
     \hline
-    hotwater & array & The energy demanded for hot water in the house for each month. & Yes & \makecell{E\_DHW\_\\HP\_out} \\
+    hotwater & array & The energy demanded for hot water in the house for each month. & E\_DHW\_HP\_out \\
     \hline
-    pv & string & The energy generated from PV in the house for each month. & Yes & \makecell{Photo\\voltaic\\Profile} \\
+    pv & string & The energy generated from PV in the house for each month. & PhotovoltaicProfile \\
     \hline
-    \makecell{energy\_\\bill\_\\year} & integer & The total yearly energy cost. & Yes & - \\
+    energy\_bill\_year & integer & The total yearly energy cost. & - \\
     \hline
     \end{tabular}
     \caption{Properties of energy\_data}
@@ -193,19 +147,41 @@ Additionally, it includes an investment\_cost property indicating the annualised
 \begin{table}[h!]
     \centering
     \scriptsize
-    \begin{tabular}{ | p{.10\textwidth} | p{.10\textwidth} | p{.35\textwidth} | p{.10\textwidth} | p{.10\textwidth} | } 
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
     \hline
-    Name & Type & Description & Required & Default value \\
+    Name & Type & Description \\
     \hline
-    config & object & An object describing the recommended energy system configurations. & Yes & - \\
+    config & object & An object describing the recommended energy system configurations. \\
     \hline
-    \makecell{energy\_\\data} & object & An object describing the energy demand, PV generation, and energy cost. & Yes & - \\
+    energy\_data & object & An object describing the energy demand, PV generation, and energy cost. \\
     \hline
-    \makecell{investm\\ent\_cost} & integer & The annualised investment cost for the recommended configuration. & Yes & - \\
+    investment\_cost & integer & The annualised investment cost for the recommended configuration. \\
     \hline
     \end{tabular}
     \caption{Properties of recommendation}
     \label{tab:properties_recommendation}
+\end{table}
+
+
+\subsubsection{Properties of profile}
+
+As table \ref{tab:properties_profile} shows, the profile component provides information about the house's location and the number of people residing in it. 
+It includes properties such as location and person.
+
+\begin{table}[h!]
+    \centering
+    \scriptsize
+    \begin{tabular}{ | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} | } 
+    \hline
+    Name & Type & Description \\
+    \hline
+    location & string & The location of the house. \\
+    \hline
+    person & integer & The total number of people residing in the house. \\
+    \hline
+    \end{tabular}
+    \caption{Properties of profile}
+    \label{tab:properties_profile}
 \end{table}
 
 
